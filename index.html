@@ -1,1019 +1,2113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Enbla Restaurant & Catering | እንብላ · Addis Ababa</title>
-<meta name="description" content="Enbla Restaurant and Catering — authentic Ethiopian flavors in Summit, Addis Ababa. Established 2018. Dine-in, takeaway, and catering." />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enbla Restaurant and Catering | Addis Ababa Summit | 10+ Years Experience</title>
+    <meta name="description"
+        content="Enbla Restaurant and Catering in Summit, Addis Ababa. Over 10 years of trusted event catering, daily corporate contracts, authentic Ethiopian spreads, Mendi, pizza, and burgers. Call 092 515 7715." />
+    <link rel="canonical" href="https://yabtsega853-wq.github.io/black-queen/" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Sans+Ethiopic:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Enbla Restaurant and Catering | Addis Ababa" />
+    <meta property="og:description"
+        content="Authentic Ethiopian flavors, 10+ years experience, daily corporate catering contracts, Mendi, burgers, and grand event catering in Summit, Addis Ababa." />
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1200&auto=format&fit=crop" />
+    <meta property="og:type" content="restaurant.restaurant" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
-<script src="https://unpkg.com/split-type"></script>
+    <!-- Schema.org Local Business Structured Data -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Enbla Restaurant and Catering",
+  "image": "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1200&auto=format&fit=crop",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Summit, around Fiyel Bet",
+    "addressLocality": "Addis Ababa",
+    "addressCountry": "ET"
+  },
+  "url": "https://yabtsega853-wq.github.io/black-queen/",
+  "telephone": "+251925157715",
+  "email": "honeynure@gmail.com",
+  "servesCuisine": ["Ethiopian", "Catering", "Mendi", "Pizza", "Burger"],
+  "priceRange": "$$"
+}
+</script>
 
-<style>
-:root{
-  --bg:#0A0705;
-  --bg-2:#120C08;
-  --cream:#F5EDE2;
-  --cream-soft:#E8DCCB;
-  --gold:#E8A33D;
-  --gold-bright:#FFC44D;
-  --red:#8B2E1F;
-  --green:#2D4A32;
-  --muted:#A89880;
-  --line:rgba(232,163,61,.2);
-  --serif:'Playfair Display',serif;
-  --display:'Anton',sans-serif;
-  --sans:'Inter',sans-serif;
-}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Sans+Ethiopic:wght@400;700&display=swap"
+        rel="stylesheet">
 
-*{margin:0;padding:0;box-sizing:border-box;}
-html,body{
-  background:var(--bg);
-  color:var(--cream);
-  font-family:var(--sans);
-  font-weight:300;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
 
-::selection{background:var(--gold);color:var(--bg);}
-img{display:block;max-width:100%;}
-a{color:inherit;text-decoration:none;}
-button{font:inherit;cursor:pointer;background:none;border:none;color:inherit;}
+    <style>
+        :root {
+            --bg: #0A0705;
+            --bg-2: #120C08;
+            --bg-3: #18100A;
+            --cream: #F5EDE2;
+            --cream-soft: #E8DCCB;
+            --gold: #E8A33D;
+            --gold-bright: #FFC44D;
+            --red: #8B2E1F;
+            --green: #2D4A32;
+            --muted: #A89880;
+            --line: rgba(232, 163, 61, .2);
+            --serif: 'Playfair Display', serif;
+            --display: 'Anton', sans-serif;
+            --sans: 'Inter', sans-serif;
+        }
 
-@media (pointer:fine){body{cursor:none;}}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* ============ CURSOR ============ */
-.cursor-dot{
-  position:fixed;top:0;left:0;pointer-events:none;z-index:9999;
-  width:8px;height:8px;border-radius:50%;
-  background:var(--gold);
-  transform:translate(-50%,-50%);
-  mix-blend-mode:difference;
-}
-.cursor-ring{
-  position:fixed;top:0;left:0;pointer-events:none;z-index:9998;
-  width:48px;height:48px;border-radius:50%;
-  border:1px solid var(--gold);
-  transform:translate(-50%,-50%);
-  display:flex;align-items:center;justify-content:center;
-  transition:width .4s cubic-bezier(.16,1,.3,1),
-             height .4s cubic-bezier(.16,1,.3,1),
-             background .4s, border-color .4s;
-}
-.cursor-ring .cursor-label{
-  font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--bg);font-weight:600;
-  opacity:0;transform:scale(.6);
-  transition:opacity .3s,transform .3s;
-}
-.cursor-ring.active{
-  width:88px;height:88px;
-  background:var(--gold);
-  border-color:var(--gold);
-}
-.cursor-ring.active .cursor-label{
-  opacity:1;transform:scale(1);
-}
-@media (pointer:coarse){
-  .cursor-dot,.cursor-ring{display:none;}
-  body{cursor:auto;}
-}
+        html,
+        body {
+            background: var(--bg);
+            color: var(--cream);
+            font-family: var(--sans);
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
 
-/* ============ PRELOADER ============ */
-.preloader{
-  position:fixed;inset:0;background:var(--bg);z-index:9999;
-  display:flex;align-items:center;justify-content:center;
-  overflow:hidden;
-}
-.preloader-inner{text-align:center;position:relative;z-index:2;}
-.preloader-word{
-  display:flex;gap:2px;
-  font-family:var(--display);
-  font-size:clamp(52px,10vw,140px);
-  line-height:.85;letter-spacing:-.02em;
-  color:var(--gold);
-  text-transform:uppercase;
-  margin-bottom:16px;
-}
-.preloader-word span{
-  display:inline-block;
-  will-change:transform, opacity;
-}
-.preloader-sub{
-  font-family:'Noto Sans Ethiopic',sans-serif;
-  font-size:clamp(20px,2.5vw,32px);
-  color:var(--cream-soft);
-  letter-spacing:.15em;
-  overflow:hidden;
-}
-.preloader-sub span{display:inline-block;}
-.preloader-bar{
-  width:160px;height:2px;background:rgba(255,255,255,.1);
-  margin:32px auto 0;overflow:hidden;
-}
-.preloader-bar i{
-  display:block;width:0;height:100%;
-  background:var(--gold);
-}
+        ::selection {
+            background: var(--gold);
+            color: var(--bg);
+        }
 
-/* ============ NAV ============ */
-.nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:24px 44px;
-  display:flex;justify-content:space-between;align-items:center;
-  transition:padding .5s, background .4s, backdrop-filter .4s;
-}
-.nav.scrolled{
-  padding:14px 44px;
-  background:rgba(10,7,5,.82);
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--line);
-}
-.nav-logo{
-  font-family:var(--display);font-size:1.2rem;
-  letter-spacing:.3em;padding-left:.3em;
-  color:var(--gold);
-}
-.nav-logo span{
-  font-family:'Noto Sans Ethiopic',sans-serif;
-  font-size:.9rem;margin-left:8px;
-  color:var(--cream-soft);
-}
-.nav-links{display:flex;gap:34px;}
-.nav-links a{
-  position:relative;
-  font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;
-  color:var(--cream-soft);
-  overflow:hidden;
-}
-.nav-links a span{
-  display:inline-block;
-  transition:transform .5s cubic-bezier(.76,0,.24,1);
-}
-.nav-links a::after{
-  content:attr(data-label);
-  position:absolute;left:0;top:100%;
-  display:inline-block;
-  transition:transform .5s cubic-bezier(.76,0,.24,1);
-  color:var(--gold);
-}
-.nav-links a:hover span{transform:translateY(-100%);}
-.nav-links a:hover::after{transform:translateY(-100%);}
-.nav-cta{
-  font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;
-  padding:12px 22px;
-  background:var(--gold);color:var(--bg);
-  font-weight:500;
-  transition:background .4s;
-}
-.nav-cta:hover{background:var(--gold-bright);}
+        img {
+            display: block;
+            max-width: 100%;
+        }
 
-.nav-toggle{display:none;width:32px;height:32px;position:relative;}
-.nav-toggle span{
-  position:absolute;left:0;right:0;height:1px;background:var(--cream);
-  transition:transform .4s;
-}
-.nav-toggle span:nth-child(1){top:12px;}
-.nav-toggle span:nth-child(2){top:20px;}
-.nav-toggle.open span:nth-child(1){transform:translateY(4px) rotate(45deg);}
-.nav-toggle.open span:nth-child(2){transform:translateY(-4px) rotate(-45deg);}
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-.mobile-menu{
-  position:fixed;inset:0;z-index:99;background:var(--bg);
-  display:flex;flex-direction:column;justify-content:center;align-items:center;
-  gap:22px;
-  clip-path:inset(0 0 100% 0);pointer-events:none;
-  transition:clip-path .8s cubic-bezier(.76,0,.24,1);
-}
-.mobile-menu.open{clip-path:inset(0 0 0% 0);pointer-events:auto;}
-.mobile-menu a{
-  font-family:var(--display);font-size:2rem;letter-spacing:.06em;
-  color:var(--cream);text-transform:uppercase;
-  opacity:.4;transition:color .3s,opacity .3s;
-}
-.mobile-menu a:hover{color:var(--gold);opacity:1;}
+        button {
+            font: inherit;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: inherit;
+        }
 
-/* ============ HERO ============ */
-.hero{
-  position:relative;
-  height:100vh;min-height:720px;
-  overflow:hidden;
-  background:var(--bg);
-}
-.hero-video{
-  position:absolute;inset:0;
-  width:100%;height:100%;object-fit:cover;
-  z-index:0;
-  opacity:.6;
-}
-.hero-overlay{
-  position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse at 30% 40%, rgba(10,7,5,.4) 0%, rgba(10,7,5,.88) 70%),
-    linear-gradient(180deg, rgba(10,7,5,.7) 0%, transparent 40%, rgba(10,7,5,.9) 100%);
-  z-index:1;
-}
-#hero-3d{
-  position:absolute;inset:0;
-  z-index:2;
-  pointer-events:none;
-}
-.hero-content{
-  position:relative;z-index:3;
-  height:100%;
-  display:flex;flex-direction:column;
-  justify-content:center;
-  padding:0 6vw;
-  max-width:1400px;
-  margin:0 auto;
-}
-.hero-eyebrow{
-  display:flex;align-items:center;gap:16px;
-  font-size:.62rem;letter-spacing:.42em;text-transform:uppercase;
-  color:var(--gold);
-  margin-bottom:28px;
-  overflow:hidden;
-}
-.hero-eyebrow span{display:inline-block;}
-.hero-eyebrow i{
-  display:block;width:28px;height:1px;background:var(--gold);
-}
-.hero-title{
-  font-family:var(--display);
-  font-size:clamp(70px,13vw,200px);
-  line-height:.82;letter-spacing:-.03em;
-  text-transform:uppercase;
-  color:var(--cream);
-  margin-bottom:12px;
-}
-.hero-title .line{display:block;overflow:hidden;padding:.04em 0;}
-.hero-title .char{display:inline-block;will-change:transform;}
-.hero-title .amharic{
-  display:block;
-  font-family:'Noto Sans Ethiopic',sans-serif;
-  font-size:.35em;
-  letter-spacing:.02em;
-  color:var(--gold);
-  margin-top:8px;
-  line-height:1.2;
-}
-.hero-sub{
-  font-family:var(--serif);font-style:italic;
-  font-size:clamp(15px,1.4vw,22px);
-  color:var(--cream-soft);
-  max-width:520px;line-height:1.6;
-  margin-bottom:40px;
-}
-.hero-cta{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
-.btn-primary{
-  display:inline-flex;align-items:center;gap:12px;
-  padding:20px 40px;
-  background:var(--gold);color:var(--bg);
-  font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;font-weight:600;
-  position:relative;overflow:hidden;
-  transition:gap .4s;
-}
-.btn-primary::before{
-  content:'';position:absolute;inset:0;background:var(--gold-bright);
-  transform:translateY(101%);transition:transform .5s cubic-bezier(.76,0,.24,1);
-}
-.btn-primary:hover::before{transform:translateY(0);}
-.btn-primary:hover{gap:20px;}
-.btn-primary span,.btn-primary svg{position:relative;z-index:2;}
-.btn-primary svg{width:14px;height:14px;transition:transform .4s;}
-.btn-primary:hover svg{transform:translateX(4px);}
-.btn-ghost{
-  font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;
-  padding:20px 0;
-  color:var(--cream-soft);
-  border-bottom:1px solid var(--line);
-  transition:color .3s,border-color .3s;
-}
-.btn-ghost:hover{color:var(--gold);border-color:var(--gold);}
+        @media (pointer:fine) {
+            body {
+                cursor: none;
+            }
+        }
 
-.hero-side{
-  position:absolute;
-  right:44px;bottom:100px;
-  z-index:4;
-  text-align:right;
-  font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;
-  color:var(--muted);
-  line-height:2.2;
-}
-.hero-side span{display:block;}
-.hero-side .dot{
-  display:inline-block;width:5px;height:5px;border-radius:50%;
-  background:var(--gold);margin-right:8px;vertical-align:middle;
-}
+        /* CURSOR */
+        .cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold);
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+        }
 
-/* ============ MARQUEE ============ */
-.marquee{
-  padding:24px 0;
-  background:var(--red);
-  color:var(--cream);
-  overflow:hidden;
-  position:relative;z-index:4;
-}
-.marquee-inner{
-  display:inline-flex;align-items:center;gap:44px;
-  white-space:nowrap;
-  animation:marqueeScroll 28s linear infinite;
-}
-.marquee-inner span{
-  font-family:var(--display);
-  font-size:clamp(28px,4vw,56px);
-  text-transform:uppercase;
-  letter-spacing:.02em;
-  line-height:1;
-}
-.marquee-inner em{
-  font-family:var(--serif);font-style:italic;
-  color:var(--gold-bright);
-  font-size:.7em;
-}
-@keyframes marqueeScroll{to{transform:translateX(-50%);}}
+        .cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9998;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid var(--gold);
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: width .4s cubic-bezier(.16, 1, .3, 1), height .4s cubic-bezier(.16, 1, .3, 1), background .4s, border-color .4s;
+        }
 
-/* ============ SECTION BASE ============ */
-.section{padding:140px 6vw;position:relative;}
-.container{max-width:1400px;margin:0 auto;}
+        .cursor-ring .cursor-label {
+            font-size: .55rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--bg);
+            font-weight: 600;
+            opacity: 0;
+            transform: scale(.6);
+            transition: opacity .3s, transform .3s;
+        }
 
-.eyebrow{
-  display:flex;align-items:center;gap:16px;
-  font-size:.6rem;letter-spacing:.42em;text-transform:uppercase;
-  color:var(--gold);
-  margin-bottom:32px;
-  overflow:hidden;
-}
-.eyebrow span{display:inline-block;}
-.eyebrow i{display:block;width:24px;height:1px;background:var(--gold);}
+        .cursor-ring.active {
+            width: 88px;
+            height: 88px;
+            background: var(--gold);
+            border-color: var(--gold);
+        }
 
-.section-heading{
-  font-family:var(--display);
-  font-size:clamp(48px,7vw,120px);
-  line-height:.85;letter-spacing:-.02em;
-  text-transform:uppercase;
-  color:var(--cream);
-  margin-bottom:24px;
-}
-.section-heading em{
-  font-family:var(--serif);font-style:italic;
-  color:var(--gold);
-  font-weight:400;
-  letter-spacing:-.02em;
-}
-.section-sub{
-  font-family:var(--serif);font-style:italic;
-  font-size:1.1rem;line-height:1.6;
-  color:var(--cream-soft);
-  max-width:480px;
-  margin-bottom:60px;
-}
+        .cursor-ring.active .cursor-label {
+            opacity: 1;
+            transform: scale(1);
+        }
 
-/* ============ ABOUT ============ */
-.about{background:var(--bg);}
-.about-grid{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:80px;align-items:center;
-}
-.about-visual{
-  position:relative;
-  height:560px;
-  overflow:hidden;
-}
-.about-visual img{
-  width:100%;height:100%;object-fit:cover;
-  transform:scale(1.15);
-  will-change:transform;
-}
-.about-visual::after{
-  content:'Est. 2018';
-  position:absolute;bottom:24px;left:24px;
-  font-family:var(--serif);font-style:italic;
-  font-size:.95rem;color:var(--gold);
-  letter-spacing:.1em;
-  z-index:2;
-}
-.about-copy p{
-  font-size:1rem;line-height:1.9;color:var(--cream-soft);
-  margin-bottom:20px;max-width:520px;
-}
-.about-copy p.lead{
-  font-family:var(--serif);font-style:italic;
-  font-size:1.35rem;line-height:1.5;
-  color:var(--cream);
-  margin-bottom:28px;
-}
-.about-stats{
-  display:flex;gap:48px;margin-top:44px;
-  padding-top:32px;border-top:1px solid var(--line);
-}
-.about-stat h4{
-  font-family:var(--display);font-size:2rem;
-  color:var(--gold);line-height:1;
-  margin-bottom:8px;
-}
-.about-stat span{
-  font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--muted);
-}
+        @media (pointer:coarse) {
 
-/* ============ MENU HIGHLIGHTS ============ */
-.menu{background:var(--bg-2);}
-.menu-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:40px;
-  margin-top:40px;
-}
-.dish-card{
-  position:relative;
-  height:520px;
-  overflow:hidden;
-  background:var(--bg);
-  border:1px solid var(--line);
-  transition:transform .6s cubic-bezier(.16,1,.3,1), box-shadow .6s;
-  transform-style:preserve-3d;
-  will-change:transform;
-}
-.dish-card:hover{
-  box-shadow:0 30px 60px rgba(0,0,0,.5);
-}
-.dish-card img{
-  width:100%;height:100%;object-fit:cover;
-  opacity:.7;
-  transition:opacity .5s, transform .8s cubic-bezier(.16,1,.3,1);
-}
-.dish-card:hover img{opacity:1;transform:scale(1.06);}
-.dish-card::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 40%,rgba(10,7,5,.9));
-  pointer-events:none;
-}
-.dish-info{
-  position:absolute;bottom:0;left:0;right:0;
-  padding:32px;z-index:2;
-}
-.dish-num{
-  font-size:.58rem;letter-spacing:.4em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:12px;
-}
-.dish-info h3{
-  font-family:var(--serif);font-style:italic;
-  font-size:1.8rem;line-height:1.15;
-  color:var(--cream);
-  margin-bottom:8px;
-}
-.dish-info p{
-  font-size:.9rem;line-height:1.6;
-  color:var(--cream-soft);
-  max-width:280px;
-}
-.dish-price{
-  position:absolute;top:24px;right:24px;
-  font-family:var(--display);font-size:1.1rem;
-  color:var(--gold);
-  z-index:2;
-}
+            .cursor-dot,
+            .cursor-ring {
+                display: none;
+            }
 
-/* ============ CATERING ============ */
-.catering{
-  position:relative;
-  min-height:80vh;
-  display:flex;align-items:center;
-  overflow:hidden;
-  background:var(--bg);
-}
-.catering-video{
-  position:absolute;inset:0;
-  width:100%;height:100%;object-fit:cover;
-  opacity:.4;
-  z-index:0;
-}
-.catering-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(90deg,var(--bg) 0%,rgba(10,7,5,.6) 60%,rgba(10,7,5,.3) 100%);
-  z-index:1;
-}
-.catering-content{
-  position:relative;z-index:2;
-  max-width:1400px;margin:0 auto;
-  padding:0 6vw;
-  width:100%;
-}
-.catering-content h2{
-  font-family:var(--display);
-  font-size:clamp(48px,7vw,100px);
-  line-height:.85;letter-spacing:-.02em;
-  text-transform:uppercase;
-  color:var(--cream);
-  margin-bottom:24px;
-}
-.catering-content h2 em{
-  font-family:var(--serif);font-style:italic;
-  color:var(--gold);font-weight:400;
-}
-.catering-content p{
-  font-family:var(--serif);font-style:italic;
-  font-size:1.2rem;line-height:1.6;
-  color:var(--cream-soft);
-  max-width:440px;
-  margin-bottom:36px;
-}
+            body {
+                cursor: auto;
+            }
+        }
 
-/* ============ GALLERY ============ */
-.gallery{background:var(--bg-2);overflow:hidden;}
-.gallery-track{
-  display:flex;gap:24px;
-  padding:0 6vw;
-  will-change:transform;
-}
-.gallery-item{
-  flex-shrink:0;
-  width:32vw;height:60vh;
-  overflow:hidden;
-  position:relative;
-}
-.gallery-item img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform 1s cubic-bezier(.16,1,.3,1);
-}
-.gallery-item:hover img{transform:scale(1.08);}
+        /* PRELOADER */
+        .preloader {
+            position: fixed;
+            inset: 0;
+            background: var(--bg);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
 
-/* ============ CONTACT ============ */
-.contact{background:var(--bg);}
-.contact-grid{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:80px;align-items:start;
-}
-.contact-info h2{
-  font-family:var(--display);
-  font-size:clamp(48px,6vw,96px);
-  line-height:.85;letter-spacing:-.02em;
-  text-transform:uppercase;
-  color:var(--cream);
-  margin-bottom:32px;
-}
-.contact-info h2 em{
-  font-family:var(--serif);font-style:italic;
-  color:var(--gold);font-weight:400;
-}
-.contact-block{
-  margin-bottom:28px;
-  padding-bottom:28px;
-  border-bottom:1px solid var(--line);
-}
-.contact-block h4{
-  font-size:.6rem;letter-spacing:.36em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:10px;font-weight:500;
-}
-.contact-block p,
-.contact-block a{
-  font-size:1.05rem;line-height:1.7;
-  color:var(--cream-soft);
-  transition:color .3s;
-}
-.contact-block a:hover{color:var(--gold);}
+        .preloader-inner {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
 
-.contact-form{
-  background:var(--bg-2);
-  padding:48px;
-  border:1px solid var(--line);
-}
-.form-group{position:relative;margin-bottom:28px;}
-.form-group label{
-  display:block;
-  font-size:.58rem;letter-spacing:.32em;text-transform:uppercase;
-  color:var(--gold);
-  margin-bottom:8px;
-}
-.form-group input,
-.form-group select,
-.form-group textarea{
-  width:100%;padding:10px 0;
-  background:transparent;border:none;
-  border-bottom:1px solid var(--line);
-  color:var(--cream);
-  font-family:var(--sans);font-size:.95rem;font-weight:300;
-  outline:none;transition:border-color .3s;
-  -webkit-appearance:none;appearance:none;
-}
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
-  border-bottom-color:var(--gold);
-}
-.form-group textarea{resize:none;min-height:60px;}
-.form-submit{
-  width:100%;padding:18px;
-  background:var(--gold);color:var(--bg);
-  font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;
-  font-weight:600;
-  margin-top:12px;
-  transition:background .3s;
-}
-.form-submit:hover{background:var(--gold-bright);}
+        .preloader-word {
+            display: flex;
+            gap: 2px;
+            font-family: var(--display);
+            font-size: clamp(52px, 10vw, 140px);
+            line-height: .85;
+            letter-spacing: -.02em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
 
-/* ============ FOOTER ============ */
-.footer{
-  padding:70px 6vw 36px;
-  background:var(--bg);
-  border-top:1px solid var(--line);
-}
-.footer-inner{
-  max-width:1400px;margin:0 auto;
-  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:50px;
-  padding-bottom:50px;
-  border-bottom:1px solid var(--line);
-}
-.footer-brand h3{
-  font-family:var(--display);font-size:1.5rem;
-  letter-spacing:.3em;padding-left:.3em;
-  color:var(--gold);
-  margin-bottom:14px;
-}
-.footer-brand p{
-  font-family:var(--serif);font-style:italic;
-  font-size:.95rem;color:var(--cream-soft);
-  line-height:1.7;max-width:280px;
-}
-.footer-col h4{
-  font-size:.58rem;letter-spacing:.36em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:18px;font-weight:500;
-}
-.footer-col a,
-.footer-col p{
-  display:block;
-  font-size:.85rem;line-height:2;
-  color:var(--cream-soft);
-  transition:color .3s;
-}
-.footer-col a:hover{color:var(--gold);}
-.footer-bottom{
-  max-width:1400px;margin:0 auto;
-  padding-top:28px;
-  display:flex;justify-content:space-between;align-items:center;
-  flex-wrap:wrap;gap:16px;
-  font-size:.68rem;color:var(--muted);
-}
-.footer-bottom .demo-note{
-  font-style:italic;color:var(--gold);
-}
+        .preloader-word span {
+            display: inline-block;
+            will-change: transform, opacity;
+        }
 
-/* ============ RESPONSIVE ============ */
-@media (max-width:1100px){
-  .menu-grid{grid-template-columns:repeat(2,1fr);}
-  .footer-inner{grid-template-columns:2fr 1fr 1fr;}
-}
-@media (max-width:900px){
-  .section{padding:100px 5vw;}
-  .nav{padding:18px 22px;}
-  .nav.scrolled{padding:12px 22px;}
-  .nav-links,.nav-cta{display:none;}
-  .nav-toggle{display:block;}
+        .preloader-sub {
+            font-family: 'Noto Sans Ethiopic', sans-serif;
+            font-size: clamp(20px, 2.5vw, 32px);
+            color: var(--cream-soft);
+            letter-spacing: .15em;
+            overflow: hidden;
+        }
 
-  .hero-content{padding:0 6vw;}
-  .hero-title{font-size:clamp(60px,15vw,110px);}
-  .hero-side{display:none;}
+        .preloader-sub span {
+            display: inline-block;
+        }
 
-  .about-grid{grid-template-columns:1fr;gap:50px;}
-  .about-visual{height:400px;}
+        .preloader-bar {
+            width: 160px;
+            height: 2px;
+            background: rgba(255, 255, 255, .1);
+            margin: 32px auto 0;
+            overflow: hidden;
+        }
 
-  .menu-grid{grid-template-columns:1fr;gap:24px;}
-  .dish-card{height:440px;}
+        .preloader-bar i {
+            display: block;
+            width: 0;
+            height: 100%;
+            background: var(--gold);
+        }
 
-  .gallery-item{width:70vw;height:44vh;}
+        /* NAV */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 24px 44px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: padding .5s, background .4s, backdrop-filter .4s;
+        }
 
-  .contact-grid{grid-template-columns:1fr;gap:50px;}
-  .contact-form{padding:32px;}
+        .nav.scrolled {
+            padding: 14px 44px;
+            background: rgba(10, 7, 5, .88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--line);
+        }
 
-  .footer-inner{grid-template-columns:1fr 1fr;gap:36px;}
-  .footer-brand{grid-column:1/-1;}
-}
-@media (max-width:520px){
-  .hero-title{font-size:clamp(48px,16vw,90px);}
-  .hero-sub{font-size:14px;}
-  .btn-primary{padding:16px 28px;font-size:.64rem;}
-  .footer-inner{grid-template-columns:1fr;}
-}
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{
-    animation-duration:.01ms !important;
-    animation-iteration-count:1 !important;
-    transition-duration:.01ms !important;
-  }
-  .marquee-inner{animation:none;}
-}
-</style>
+        .nav-logo {
+            font-family: var(--display);
+            font-size: 1.2rem;
+            letter-spacing: .3em;
+            padding-left: .3em;
+            color: var(--gold);
+        }
+
+        .nav-logo span {
+            font-family: 'Noto Sans Ethiopic', sans-serif;
+            font-size: .9rem;
+            margin-left: 8px;
+            color: var(--cream-soft);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 34px;
+        }
+
+        .nav-links a {
+            position: relative;
+            font-size: .66rem;
+            letter-spacing: .26em;
+            text-transform: uppercase;
+            color: var(--cream-soft);
+            overflow: hidden;
+        }
+
+        .nav-links a span {
+            display: inline-block;
+            transition: transform .5s cubic-bezier(.76, 0, .24, 1);
+        }
+
+        .nav-links a::after {
+            content: attr(data-label);
+            position: absolute;
+            left: 0;
+            top: 100%;
+            display: inline-block;
+            transition: transform .5s cubic-bezier(.76, 0, .24, 1);
+            color: var(--gold);
+        }
+
+        .nav-links a:hover span {
+            transform: translateY(-100%);
+        }
+
+        .nav-links a:hover::after {
+            transform: translateY(-100%);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .status-pill {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: .58rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            padding: 6px 12px;
+            background: rgba(45, 74, 50, .3);
+            border: 1px solid rgba(45, 74, 50, .6);
+            color: #7AE582;
+        }
+
+        .status-pill.closed {
+            background: rgba(139, 46, 31, .3);
+            border-color: rgba(139, 46, 31, .6);
+            color: #FF6B6B;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+            animation: pulseDot 2s infinite;
+        }
+
+        @keyframes pulseDot {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: .3;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .nav-cta {
+            font-size: .64rem;
+            letter-spacing: .26em;
+            text-transform: uppercase;
+            padding: 12px 22px;
+            background: var(--gold);
+            color: var(--bg);
+            font-weight: 600;
+            transition: background .4s;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-bright);
+        }
+
+        .nav-toggle {
+            display: none;
+            width: 32px;
+            height: 32px;
+            position: relative;
+        }
+
+        .nav-toggle span {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--cream);
+            transition: transform .4s;
+        }
+
+        .nav-toggle span:nth-child(1) {
+            top: 12px;
+        }
+
+        .nav-toggle span:nth-child(2) {
+            top: 20px;
+        }
+
+        .nav-toggle.open span:nth-child(1) {
+            transform: translateY(4px) rotate(45deg);
+        }
+
+        .nav-toggle.open span:nth-child(2) {
+            transform: translateY(-4px) rotate(-45deg);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 99;
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 22px;
+            clip-path: inset(0 0 100% 0);
+            pointer-events: none;
+            transition: clip-path .8s cubic-bezier(.76, 0, .24, 1);
+        }
+
+        .mobile-menu.open {
+            clip-path: inset(0 0 0% 0);
+            pointer-events: auto;
+        }
+
+        .mobile-menu a {
+            font-family: var(--display);
+            font-size: 2rem;
+            letter-spacing: .06em;
+            color: var(--cream);
+            text-transform: uppercase;
+            opacity: .7;
+            transition: color .3s, opacity .3s;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--gold);
+            opacity: 1;
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 740px;
+            overflow: hidden;
+            background: var(--bg);
+        }
+
+        .hero-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: .55;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 40%, rgba(10, 7, 5, .38) 0%, rgba(10, 7, 5, .88) 70%), linear-gradient(180deg, rgba(10, 7, 5, .75) 0%, transparent 40%, rgba(10, 7, 5, .95) 100%);
+            z-index: 1;
+        }
+
+        #hero-3d {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 6vw;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            font-size: .62rem;
+            letter-spacing: .38em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .hero-eyebrow span {
+            display: inline-block;
+        }
+
+        .hero-eyebrow i {
+            display: block;
+            width: 28px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border: 1px solid var(--line);
+            background: rgba(232, 163, 61, .08);
+            font-size: .58rem;
+            letter-spacing: .26em;
+            text-transform: uppercase;
+            color: var(--gold-bright);
+            margin-bottom: 18px;
+            width: fit-content;
+        }
+
+        .hero-title {
+            font-family: var(--display);
+            font-size: clamp(60px, 11vw, 170px);
+            line-height: .82;
+            letter-spacing: -.03em;
+            text-transform: uppercase;
+            color: var(--cream);
+            margin-bottom: 12px;
+        }
+
+        .hero-title .line {
+            display: block;
+            overflow: hidden;
+            padding: .04em 0;
+        }
+
+        .hero-title .char {
+            display: inline-block;
+            will-change: transform;
+        }
+
+        .hero-title .amharic {
+            display: block;
+            font-family: 'Noto Sans Ethiopic', sans-serif;
+            font-size: .32em;
+            letter-spacing: .02em;
+            color: var(--gold);
+            margin-top: 8px;
+            line-height: 1.2;
+        }
+
+        .hero-sub {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(15px, 1.4vw, 21px);
+            color: var(--cream-soft);
+            max-width: 580px;
+            line-height: 1.65;
+            margin-bottom: 38px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px 38px;
+            background: var(--gold);
+            color: var(--bg);
+            font-size: .7rem;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            transition: gap .4s;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gold-bright);
+            transform: translateY(101%);
+            transition: transform .5s cubic-bezier(.76, 0, .24, 1);
+        }
+
+        .btn-primary:hover::before {
+            transform: translateY(0);
+        }
+
+        .btn-primary:hover {
+            gap: 20px;
+        }
+
+        .btn-primary span,
+        .btn-primary svg {
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-primary svg {
+            width: 14px;
+            height: 14px;
+            transition: transform .4s;
+        }
+
+        .btn-primary:hover svg {
+            transform: translateX(4px);
+        }
+
+        .btn-ghost {
+            font-size: .7rem;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            padding: 20px 0;
+            color: var(--cream-soft);
+            border-bottom: 1px solid var(--line);
+            transition: color .3s, border-color .3s;
+        }
+
+        .btn-ghost:hover {
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .hero-side {
+            position: absolute;
+            right: 44px;
+            bottom: 88px;
+            z-index: 4;
+            text-align: right;
+            font-size: .6rem;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: var(--muted);
+            line-height: 2.2;
+        }
+
+        .hero-side span {
+            display: block;
+        }
+
+        .hero-side .star {
+            color: var(--gold-bright);
+        }
+
+        .hero-side .dot {
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--gold);
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        /* MARQUEE */
+        .marquee {
+            padding: 24px 0;
+            background: var(--red);
+            color: var(--cream);
+            overflow: hidden;
+            position: relative;
+            z-index: 4;
+        }
+
+        .marquee-inner {
+            display: inline-flex;
+            align-items: center;
+            gap: 44px;
+            white-space: nowrap;
+            animation: marqueeScroll 28s linear infinite;
+        }
+
+        .marquee-inner span {
+            font-family: var(--display);
+            font-size: clamp(26px, 3.8vw, 52px);
+            text-transform: uppercase;
+            letter-spacing: .02em;
+            line-height: 1;
+        }
+
+        .marquee-inner em {
+            font-family: var(--serif);
+            font-style: italic;
+            color: var(--gold-bright);
+            font-size: .7em;
+        }
+
+        @keyframes marqueeScroll {
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: 130px 6vw;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: .6rem;
+            letter-spacing: .42em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 28px;
+            overflow: hidden;
+        }
+
+        .eyebrow span {
+            display: inline-block;
+        }
+
+        .eyebrow i {
+            display: block;
+            width: 24px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .section-heading {
+            font-family: var(--display);
+            font-size: clamp(46px, 6.8vw, 112px);
+            line-height: .86;
+            letter-spacing: -.02em;
+            text-transform: uppercase;
+            color: var(--cream);
+            margin-bottom: 24px;
+        }
+
+        .section-heading em {
+            font-family: var(--serif);
+            font-style: italic;
+            color: var(--gold);
+            font-weight: 400;
+            letter-spacing: -.02em;
+        }
+
+        .section-sub {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 1.12rem;
+            line-height: 1.65;
+            color: var(--cream-soft);
+            max-width: 540px;
+            margin-bottom: 56px;
+        }
+
+        /* ABOUT */
+        .about {
+            background: var(--bg);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-visual {
+            position: relative;
+            height: 560px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+        }
+
+        .about-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.15);
+            will-change: transform;
+        }
+
+        .about-visual::after {
+            content: 'Summit, Addis Ababa · 10+ Years Excellence';
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            padding: 8px 16px;
+            background: rgba(10, 7, 5, .82);
+            border: 1px solid var(--line);
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: .95rem;
+            color: var(--gold);
+            letter-spacing: .08em;
+            z-index: 2;
+        }
+
+        .about-copy p {
+            font-size: 1rem;
+            line-height: 1.9;
+            color: var(--cream-soft);
+            margin-bottom: 20px;
+            max-width: 540px;
+        }
+
+        .about-copy p.lead {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 1.35rem;
+            line-height: 1.5;
+            color: var(--cream);
+            margin-bottom: 28px;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 44px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid var(--line);
+        }
+
+        .about-stat h4 {
+            font-family: var(--display);
+            font-size: 2.2rem;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .about-stat span {
+            font-size: .6rem;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        /* CATERING PACKAGES */
+        .catering-section {
+            background: var(--bg-2);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .pkg-card {
+            background: var(--bg);
+            border: 1px solid var(--line);
+            padding: 44px 36px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border-color .4s, transform .4s;
+        }
+
+        .pkg-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-6px);
+        }
+
+        .pkg-card.featured {
+            background: linear-gradient(180deg, rgba(232, 163, 61, .08) 0%, var(--bg) 100%);
+            border-color: var(--gold);
+        }
+
+        .pkg-tag {
+            font-size: .58rem;
+            letter-spacing: .34em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .pkg-card h3 {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 1.85rem;
+            color: var(--cream);
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .pkg-guests {
+            font-size: .75rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .pkg-list {
+            list-style: none;
+            margin-bottom: 36px;
+        }
+
+        .pkg-list li {
+            font-size: .92rem;
+            color: var(--cream-soft);
+            padding: 8px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.5;
+        }
+
+        .pkg-list li::before {
+            content: '✦';
+            color: var(--gold);
+            font-size: .7rem;
+            margin-top: 3px;
+        }
+
+        .pkg-btn {
+            width: 100%;
+            padding: 16px 24px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-size: .66rem;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            font-weight: 500;
+            text-align: center;
+            transition: background .3s, color .3s;
+        }
+
+        .pkg-card.featured .pkg-btn,
+        .pkg-btn:hover {
+            background: var(--gold);
+            color: var(--bg);
+            font-weight: 600;
+        }
+
+        /* MENU FILTERS */
+        .menu {
+            background: var(--bg);
+        }
+
+        .menu-filters {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 22px;
+            border: 1px solid var(--line);
+            font-size: .64rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--cream-soft);
+            transition: background .3s, border-color .3s, color .3s;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--bg);
+            font-weight: 600;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .dish-card {
+            position: relative;
+            height: 480px;
+            overflow: hidden;
+            background: var(--bg-2);
+            border: 1px solid var(--line);
+            transition: transform .6s cubic-bezier(.16, 1, .3, 1), box-shadow .6s, opacity .4s;
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        .dish-card.hidden {
+            display: none;
+        }
+
+        .dish-card:hover {
+            box-shadow: 0 30px 60px rgba(0, 0, 0, .6);
+            border-color: var(--gold);
+        }
+
+        .dish-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: .72;
+            transition: opacity .5s, transform .8s cubic-bezier(.16, 1, .3, 1);
+        }
+
+        .dish-card:hover img {
+            opacity: .95;
+            transform: scale(1.06);
+        }
+
+        .dish-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 35%, rgba(10, 7, 5, .94));
+            pointer-events: none;
+        }
+
+        .dish-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 32px;
+            z-index: 2;
+        }
+
+        .dish-num {
+            font-size: .58rem;
+            letter-spacing: .36em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .dish-info h3 {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 1.65rem;
+            line-height: 1.15;
+            color: var(--cream);
+            margin-bottom: 8px;
+        }
+
+        .dish-info p {
+            font-size: .88rem;
+            line-height: 1.6;
+            color: var(--cream-soft);
+        }
+
+        .dish-badge {
+            position: absolute;
+            top: 22px;
+            right: 22px;
+            padding: 6px 12px;
+            background: rgba(10, 7, 5, .8);
+            border: 1px solid var(--line);
+            font-size: .55rem;
+            letter-spacing: .26em;
+            text-transform: uppercase;
+            color: var(--gold);
+            z-index: 2;
+        }
+
+        /* CATERING BANNER */
+        .catering-banner {
+            position: relative;
+            min-height: 72vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: var(--bg);
+        }
+
+        .catering-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: .38;
+            z-index: 0;
+        }
+
+        .catering-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, var(--bg) 0%, rgba(10, 7, 5, .68) 60%, rgba(10, 7, 5, .35) 100%);
+            z-index: 1;
+        }
+
+        .catering-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 6vw;
+            width: 100%;
+        }
+
+        .catering-content h2 {
+            font-family: var(--display);
+            font-size: clamp(46px, 6.8vw, 96px);
+            line-height: .86;
+            letter-spacing: -.02em;
+            text-transform: uppercase;
+            color: var(--cream);
+            margin-bottom: 24px;
+        }
+
+        .catering-content h2 em {
+            font-family: var(--serif);
+            font-style: italic;
+            color: var(--gold);
+            font-weight: 400;
+        }
+
+        .catering-content p {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 1.2rem;
+            line-height: 1.65;
+            color: var(--cream-soft);
+            max-width: 480px;
+            margin-bottom: 36px;
+        }
+
+        /* GALLERY */
+        .gallery {
+            background: var(--bg-2);
+            overflow: hidden;
+        }
+
+        .gallery-track {
+            display: flex;
+            gap: 24px;
+            padding: 0 6vw;
+            will-change: transform;
+        }
+
+        .gallery-item {
+            flex-shrink: 0;
+            width: 32vw;
+            height: 56vh;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid var(--line);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s cubic-bezier(.16, 1, .3, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* SOCIAL PROOF BANNER */
+        .social-banner {
+            background: var(--bg-2);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            padding: 60px 6vw;
+        }
+
+        .social-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .social-card {
+            background: var(--bg);
+            border: 1px solid var(--line);
+            padding: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .social-info h3 {
+            font-family: var(--display);
+            font-size: 1.5rem;
+            color: var(--cream);
+            margin-bottom: 4px;
+            letter-spacing: .05em;
+        }
+
+        .social-info p {
+            font-size: .85rem;
+            color: var(--muted);
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+
+        .social-stats-badge {
+            text-align: right;
+            font-family: var(--serif);
+            font-style: italic;
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .social-btn {
+            padding: 12px 24px;
+            background: var(--gold);
+            color: var(--bg);
+            font-size: .65rem;
+            letter-spacing: .25em;
+            text-transform: uppercase;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 16px;
+            transition: background .3s;
+        }
+
+        .social-btn:hover {
+            background: var(--gold-bright);
+        }
+
+        /* CONTACT */
+        .contact {
+            background: var(--bg);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-family: var(--display);
+            font-size: clamp(46px, 6vw, 92px);
+            line-height: .86;
+            letter-spacing: -.02em;
+            text-transform: uppercase;
+            color: var(--cream);
+            margin-bottom: 32px;
+        }
+
+        .contact-info h2 em {
+            font-family: var(--serif);
+            font-style: italic;
+            color: var(--gold);
+            font-weight: 400;
+        }
+
+        .contact-block {
+            margin-bottom: 26px;
+            padding-bottom: 26px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .contact-block h4 {
+            font-size: .6rem;
+            letter-spacing: .36em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .contact-block p,
+        .contact-block a {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--cream-soft);
+            transition: color .3s;
+        }
+
+        .contact-block a:hover {
+            color: var(--gold);
+        }
+
+        .contact-form {
+            background: var(--bg-2);
+            padding: 48px;
+            border: 1px solid var(--line);
+        }
+
+        .form-title {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 1.65rem;
+            color: var(--cream);
+            margin-bottom: 8px;
+        }
+
+        .form-desc {
+            font-size: .88rem;
+            color: var(--muted);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 26px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: .58rem;
+            letter-spacing: .32em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--line);
+            color: var(--cream);
+            font-family: var(--sans);
+            font-size: .95rem;
+            font-weight: 300;
+            outline: none;
+            transition: border-color .3s;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .form-group select option {
+            background: var(--bg-2);
+            color: var(--cream);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-bottom-color: var(--gold);
+        }
+
+        .form-group textarea {
+            resize: none;
+            min-height: 64px;
+        }
+
+        .form-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 18px;
+            background: var(--gold);
+            color: var(--bg);
+            font-size: .7rem;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: background .3s;
+        }
+
+        .form-submit:hover {
+            background: var(--gold-bright);
+        }
+
+        .form-call-alt {
+            display: block;
+            text-align: center;
+            padding: 14px;
+            border: 1px solid var(--line);
+            font-size: .66rem;
+            letter-spacing: .26em;
+            text-transform: uppercase;
+            color: var(--cream-soft);
+            transition: border-color .3s, color .3s;
+        }
+
+        .form-call-alt:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* FOOTER */
+        .footer {
+            padding: 70px 6vw 36px;
+            background: var(--bg);
+            border-top: 1px solid var(--line);
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .footer-brand h3 {
+            font-family: var(--display);
+            font-size: 1.5rem;
+            letter-spacing: .3em;
+            padding-left: .3em;
+            color: var(--gold);
+            margin-bottom: 14px;
+        }
+
+        .footer-brand p {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: .95rem;
+            color: var(--cream-soft);
+            line-height: 1.7;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-size: .58rem;
+            letter-spacing: .36em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
+
+        .footer-col a,
+        .footer-col p {
+            display: block;
+            font-size: .85rem;
+            line-height: 2;
+            color: var(--cream-soft);
+            transition: color .3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: .68rem;
+            color: var(--muted);
+        }
+
+        /* MOBILE STICKY BOTTOM BAR */
+        .mobile-sticky-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            background: rgba(10, 7, 5, .95);
+            backdrop-filter: blur(16px);
+            border-top: 1px solid var(--line);
+            padding: 12px 20px;
+            justify-content: space-between;
+            gap: 12px;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, .5);
+        }
+
+        .mobile-sticky-bar a {
+            flex: 1;
+            padding: 14px;
+            text-align: center;
+            font-size: .64rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .mob-btn-call {
+            background: var(--bg-2);
+            border: 1px solid var(--line);
+            color: var(--cream);
+        }
+
+        .mob-btn-wa {
+            background: var(--gold);
+            color: var(--bg);
+        }
+
+        @media(max-width:900px) {
+            .mobile-sticky-bar {
+                display: flex;
+            }
+
+            .footer {
+                padding-bottom: 90px;
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width:1100px) {
+
+            .menu-grid,
+            .packages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-inner {
+                grid-template-columns: 2fr 1fr 1fr;
+            }
+        }
+
+        @media (max-width:900px) {
+            .section {
+                padding: 96px 5vw;
+            }
+
+            .nav {
+                padding: 18px 22px;
+            }
+
+            .nav.scrolled {
+                padding: 12px 22px;
+            }
+
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero-content {
+                padding: 0 6vw;
+            }
+
+            .hero-title {
+                font-size: clamp(56px, 15vw, 108px);
+            }
+
+            .hero-side {
+                display: none;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .about-visual {
+                height: 400px;
+            }
+
+            .menu-grid,
+            .packages-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .dish-card {
+                height: 420px;
+            }
+
+            .gallery-item {
+                width: 70vw;
+                height: 44vh;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .contact-form {
+                padding: 32px 24px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+                gap: 36px;
+            }
+
+            .footer-brand {
+                grid-column: 1/-1;
+            }
+        }
+
+        @media (max-width:520px) {
+            .hero-title {
+                font-size: clamp(44px, 15vw, 82px);
+            }
+
+            .hero-sub {
+                font-size: 14px;
+            }
+
+            .btn-primary {
+                padding: 16px 28px;
+                font-size: .64rem;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+
+            .marquee-inner {
+                animation: none;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<!-- Cursor -->
-<div class="cursor-dot" aria-hidden="true"></div>
-<div class="cursor-ring" aria-hidden="true">
-  <span class="cursor-label">View</span>
-</div>
+    <!-- Cursor -->
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"><span class="cursor-label">View</span></div>
 
-<!-- Preloader -->
-<div class="preloader" aria-hidden="true">
-  <div class="preloader-inner">
-    <div class="preloader-word">
-      <span>E</span><span>N</span><span>B</span><span>L</span><span>A</span>
-    </div>
-    <div class="preloader-sub"><span>እንብላ</span></div>
-    <div class="preloader-bar"><i></i></div>
-  </div>
-</div>
-
-<!-- Nav -->
-<nav class="nav">
-  <a href="#top" class="nav-logo">ENBLA <span>እንብላ</span></a>
-  <div class="nav-links">
-    <a href="#about" data-label="About"><span>About</span></a>
-    <a href="#menu" data-label="Menu"><span>Menu</span></a>
-    <a href="#catering" data-label="Catering"><span>Catering</span></a>
-    <a href="#gallery" data-label="Gallery"><span>Gallery</span></a>
-    <a href="#contact" data-label="Contact"><span>Contact</span></a>
-  </div>
-  <a href="#contact" class="nav-cta">Book a Table</a>
-  <button class="nav-toggle" aria-label="Menu">
-    <span></span><span></span>
-  </button>
-</nav>
-
-<!-- Mobile menu -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#about">About</a>
-  <a href="#menu">Menu</a>
-  <a href="#catering">Catering</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#contact">Contact</a>
-</div>
-
-<!-- HERO -->
-<section class="hero" id="top">
-  <video class="hero-video" autoplay muted loop playsinline
-    poster="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1920&auto=format&fit=crop">
-    <source src="https://assets.mixkit.co/videos/preview/mixkit-coffee-beans-falling-in-slow-motion-42017-large.mp4" type="video/mp4">
-  </video>
-  <div class="hero-overlay"></div>
-  <canvas id="hero-3d"></canvas>
-
-  <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span>Summit · Addis Ababa</span>
-      <i></i>
-      <span>Est. 2018</span>
-    </div>
-    <h1 class="hero-title">
-      <span class="line"><span class="char">E</span><span class="char">N</span><span class="char">B</span><span class="char">L</span><span class="char">A</span></span>
-      <span class="amharic">እንብላ</span>
-    </h1>
-    <p class="hero-sub">Authentic Ethiopian flavors, served the way they should be — with family, fire, and time.</p>
-    <div class="hero-cta">
-      <a href="#menu" class="btn-primary magnetic">
-        <span>Explore the Menu</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a href="#contact" class="btn-ghost">Reserve a Table</a>
-    </div>
-  </div>
-
-  <div class="hero-side">
-    <span><span class="dot"></span>Open · Closes 10 PM</span>
-    <span>092 515 7715</span>
-  </div>
-</section>
-
-<!-- Marquee -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-inner">
-    <span>Rice & Beef Fried Rice</span><em>·</em>
-    <span>Kurte & Bufe</span><em>·</em>
-    <span>Tebesatebes & Kitfo</span><em>·</em>
-    <span>Dine-in · Takeaway · Catering</span><em>·</em>
-    <span>Rice & Beef Fried Rice</span><em>·</em>
-    <span>Kurte & Bufe</span><em>·</em>
-    <span>Tebesatebes & Kitfo</span><em>·</em>
-    <span>Dine-in · Takeaway · Catering</span><em>·</em>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section class="section about" id="about">
-  <div class="container">
-    <div class="eyebrow">
-      <span>01</span><i></i><span>Our Story</span>
-    </div>
-    <div class="about-grid">
-      <div class="about-visual">
-        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1200&auto=format&fit=crop" alt="Enbla dining room" loading="lazy">
-      </div>
-      <div class="about-copy">
-        <h2 class="section-heading">A family table.<br><em>An Ethiopian welcome.</em></h2>
-        <p class="lead">Enbla began in 2018 with a simple idea — that a meal should feel like coming home, even if you've never been here before.</p>
-        <p>We are a family restaurant in Summit, around Fiyel Bet. We cook the food we grew up with: kitfo, kurte, tebesatebes, slow-cooked beef fried rice. We serve it the way our families served it — generously, and without hurry.</p>
-        <p>Whether you are dining in, taking away, or planning a celebration for two hundred, we bring the same fire and the same care to every plate.</p>
-        <div class="about-stats">
-          <div class="about-stat">
-            <h4>2018</h4>
-            <span>Established</span>
-          </div>
-          <div class="about-stat">
-            <h4>5.0</h4>
-            <span>Guest rating</span>
-          </div>
-          <div class="about-stat">
-            <h4>100%</h4>
-            <span>Teff injera</span>
-          </div>
+    <!-- Preloader -->
+    <div class="preloader" aria-hidden="true">
+        <div class="preloader-inner">
+            <div class="preloader-word"><span>E</span><span>N</span><span>B</span><span>L</span><span>A</span></div>
+            <div class="preloader-sub"><span>እንብላ ኬተሪንግ · CATERING & RESTAURANT</span></div>
+            <div class="preloader-bar"><i></i></div>
         </div>
-      </div>
     </div>
-  </div>
-</section>
 
-<!-- MENU HIGHLIGHTS -->
-<section class="section menu" id="menu">
-  <div class="container">
-    <div class="eyebrow">
-      <span>02</span><i></i><span>Menu Highlights</span>
-    </div>
-    <h2 class="section-heading">The plates <em>people come back for.</em></h2>
-    <p class="section-sub">A short list from a long menu. Every plate is made to order.</p>
+    <!-- Nav -->
+    <nav class="nav">
+        <a href="#top" class="nav-logo">ENBLA <span>እንብላ</span></a>
+        <div class="nav-links">
+            <a href="#about" data-label="About"><span>About</span></a>
+            <a href="#packages" data-label="Catering"><span>Catering</span></a>
+            <a href="#menu" data-label="Menu"><span>Menu</span></a>
+            <a href="#social" data-label="Social"><span>Socials</span></a>
+            <a href="#contact" data-label="Contact"><span>Contact</span></a>
+        </div>
+        <div class="nav-right">
+            <div class="status-pill" id="statusPill">
+                <span class="status-dot"></span><span id="statusText">Open Now</span>
+            </div>
+            <a href="#contact" class="nav-cta">Request Quote</a>
+        </div>
+        <button class="nav-toggle" aria-label="Menu"><span></span><span></span></button>
+    </nav>
 
-    <div class="menu-grid">
-      <div class="dish-card" data-tilt>
-        <span class="dish-price">—</span>
-        <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=80&w=800&auto=format&fit=crop" alt="Rice with Beef Fried Rice" loading="lazy">
-        <div class="dish-info">
-          <div class="dish-num">01 · Signature</div>
-          <h3>Rice with Beef Fried Rice</h3>
-          <p>Wok-fired rice, tender beef, Ethiopian spices. The one everyone orders twice.</p>
-        </div>
-      </div>
-      <div class="dish-card" data-tilt>
-        <span class="dish-price">—</span>
-        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="Kurte and Bufe" loading="lazy">
-        <div class="dish-info">
-          <div class="dish-num">02 · Traditional</div>
-          <h3>Kurte & Bufe</h3>
-          <p>Hand-cut raw beef, mitmita, and awaze. Served the old way, with injera.</p>
-        </div>
-      </div>
-      <div class="dish-card" data-tilt>
-        <span class="dish-price">—</span>
-        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=800&auto=format&fit=crop" alt="Tebesatebes and Kitfo" loading="lazy">
-        <div class="dish-info">
-          <div class="dish-num">03 · House Favourite</div>
-          <h3>Tebesatebes & Kitfo</h3>
-          <p>Minced beef, niter kibbeh, cardamom. Rich, warm, and quietly perfect.</p>
-        </div>
-      </div>
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about">About</a>
+        <a href="#packages">Catering Packages</a>
+        <a href="#menu">Menu & Specialties</a>
+        <a href="#social">Social Community</a>
+        <a href="#contact">Request Quote</a>
     </div>
-  </div>
-</section>
 
-<!-- CATERING -->
-<section class="catering" id="catering">
-  <video class="catering-video" autoplay muted loop playsinline
-    poster="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1920&auto=format&fit=crop">
-    <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-chef-cooking-in-a-pan-4550-large.mp4" type="video/mp4">
-  </video>
-  <div class="catering-overlay"></div>
-  <div class="catering-content">
-    <div class="eyebrow">
-      <span>03</span><i></i><span>Catering</span>
-    </div>
-    <h2>We bring <em>the fire</em> to you.</h2>
-    <p>From a family gathering of twelve to a wedding of three hundred — Enbla caters the same food, with the same care, wherever you are.</p>
-    <a href="#contact" class="btn-primary magnetic">
-      <span>Enquire about catering</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
-  </div>
-</section>
+    <!-- HERO -->
+    <section class="hero" id="top">
+        <video class="hero-video" autoplay muted loop playsinline
+            poster="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1920&auto=format&fit=crop">
+            <source
+                src="https://assets.mixkit.co/videos/preview/mixkit-coffee-beans-falling-in-slow-motion-42017-large.mp4"
+                type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <canvas id="hero-3d"></canvas>
 
-<!-- GALLERY -->
-<section class="section gallery" id="gallery">
-  <div class="container">
-    <div class="eyebrow">
-      <span>04</span><i></i><span>The Room</span>
-    </div>
-    <h2 class="section-heading">Come <em>hungry.</em></h2>
-  </div>
-  <div class="gallery-track">
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop" alt="Dining room" loading="lazy">
-    </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop" alt="Plated dish" loading="lazy">
-    </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1200&auto=format&fit=crop" alt="Fresh ingredients" loading="lazy">
-    </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=1200&auto=format&fit=crop" alt="Steak plating" loading="lazy">
-    </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=1200&auto=format&fit=crop" alt="Fish dish" loading="lazy">
-    </div>
-  </div>
-</section>
+        <div class="hero-content">
+            <div class="hero-badge">★ 10+ Years of Catering Excellence in Addis Ababa</div>
+            <div class="hero-eyebrow">
+                <span>Summit, Fiyel Bet · Addis Ababa</span><i></i><span>እንብላ ኬተሪንግ</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="line"><span class="char">E</span><span class="char">N</span><span
+                        class="char">B</span><span class="char">L</span><span class="char">A</span></span>
+                <span class="amharic">እንብላ ሬስቶራንት እና ኬተሪንግ</span>
+            </h1>
+            <p class="hero-sub">Over a decade of trusted full-service Ethiopian catering, institutional staff contracts
+                (AMCE Iveco), savory Mendi, wood-fired pizzas, and gourmet burgers in Summit.</p>
+            <div class="hero-cta">
+                <a href="#packages" class="btn-primary magnetic">
+                    <span>Explore Catering Plans</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                </a>
+                <a href="tel:+251925157715" class="btn-ghost">Call: 092 515 7715</a>
+            </div>
+        </div>
 
-<!-- CONTACT -->
-<section class="section contact" id="contact">
-  <div class="container">
-    <div class="eyebrow">
-      <span>05</span><i></i><span>Find Us</span>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-info">
-        <h2>Come <em>eat</em> with us.</h2>
-        <div class="contact-block">
-          <h4>Location</h4>
-          <p>Summit, around Fiyel Bet<br>2V54+QRF, Addis Ababa<br>Ethiopia</p>
+        <div class="hero-side">
+            <span><span class="star">★★★★★</span> 10 Years Experience</span>
+            <span><span class="dot"></span>Open Daily · Closes 10 PM</span>
+            <span>honeynure@gmail.com</span>
         </div>
-        <div class="contact-block">
-          <h4>Contact</h4>
-          <a href="tel:+251925157715">092 515 7715</a><br>
-          <a href="tel:+251925157715">+251 925 157 715</a>
-        </div>
-        <div class="contact-block">
-          <h4>Hours</h4>
-          <p>Open daily · Closes 10 PM</p>
-        </div>
-        <div class="contact-block">
-          <h4>Service</h4>
-          <p>Dine-in · Takeaway · Catering</p>
-        </div>
-      </div>
-      <form class="contact-form" id="contactForm">
-        <div class="form-group">
-          <label for="name">Your name</label>
-          <input type="text" id="name" required>
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone</label>
-          <input type="tel" id="phone" required>
-        </div>
-        <div class="form-group">
-          <label for="guests">Guests</label>
-          <select id="guests" required>
-            <option value="">Select…</option>
-            <option>1–2</option>
-            <option>3–4</option>
-            <option>5–8</option>
-            <option>9+ / Catering</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="notes">Notes</label>
-          <textarea id="notes" rows="2" placeholder="Date, time, occasion…"></textarea>
-        </div>
-        <button type="submit" class="form-submit" id="submitBtn">Send Request</button>
-      </form>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <h3>ENBLA</h3>
-      <p>እንብላ · Authentic Ethiopian flavors in Summit, Addis Ababa. Family restaurant, established 2018.</p>
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-inner">
+            <span>10+ Years Experience</span><em>·</em>
+            <span>Daily Staff Catering Contracts (AMCE Iveco)</span><em>·</em>
+            <span>Authentic Ethiopian Feasts & Agelgel</span><em>·</em>
+            <span>Mendi, Pizza & Gourmet Burgers</span><em>·</em>
+            <span>Summit, Addis Ababa</span><em>·</em>
+            <span>10+ Years Experience</span><em>·</em>
+            <span>Daily Staff Catering Contracts (AMCE Iveco)</span><em>·</em>
+            <span>Authentic Ethiopian Feasts & Agelgel</span><em>·</em>
+        </div>
     </div>
-    <div class="footer-col">
-      <h4>Visit</h4>
-      <p>Summit, Fiyel Bet<br>2V54+QRF, Addis Ababa</p>
-    </div>
-    <div class="footer-col">
-      <h4>Call</h4>
-      <a href="tel:+251925157715">092 515 7715</a>
-      <a href="tel:+251925157715">+251 925 157 715</a>
-    </div>
-    <div class="footer-col">
-      <h4>Follow</h4>
-      <a href="#">Instagram</a>
-      <a href="#">TikTok</a>
-      <a href="#">Telegram</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 Enbla Restaurant & Catering · Addis Ababa</span>
-    <span class="demo-note">Demo website · Not affiliated with a live booking system</span>
-  </div>
-</footer>
 
-<!-- Three.js -->
-<script type="importmap">
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="eyebrow"><span>01</span><i></i><span>Our Heritage</span></div>
+            <div class="about-grid">
+                <div class="about-visual">
+                    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1200&auto=format&fit=crop"
+                        alt="Enbla Restaurant and Catering Summit Addis Ababa" loading="lazy">
+                </div>
+                <div class="about-copy">
+                    <h2 class="section-heading">Ten years of <em>culinary mastery.</em></h2>
+                    <p class="lead">With over 10 years of professional catering and restaurant operation in Addis Ababa,
+                        Enbla delivers 100% original, hygienic, and unforgettable traditional flavors.</p>
+                    <p>Located in Summit around Fiyel Bet, we handle large-scale institutional contracts—providing daily
+                        lunch service for over 100 staff members at AMCE Iveco Ethiopia—alongside private family feasts
+                        and weddings.</p>
+                    <p>Whether you need a massive event spread or a cozy dining experience, our kitchen upholds the
+                        highest standards of taste and safety.</p>
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <h4>10+</h4><span>Years Experience</span>
+                        </div>
+                        <div class="about-stat">
+                            <h4>1,346+</h4><span>TikTok Followers</span>
+                        </div>
+                        <div class="about-stat">
+                            <h4>100%</h4><span>Original Taste</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATERING PACKAGES -->
+    <section class="section catering-section" id="packages">
+        <div class="container">
+            <div class="eyebrow"><span>02</span><i></i><span>Catering & Corporate Services</span></div>
+            <h2 class="section-heading">Designed for <em>scale and celebration.</em></h2>
+            <p class="section-sub">From long-term office lunch agreements to massive weekend weddings and family
+                gatherings across Addis Ababa.</p>
+
+            <div class="packages-grid">
+                <div class="pkg-card">
+                    <div>
+                        <span class="pkg-tag">Tier 01 · Corporate Contracts</span>
+                        <h3>Daily Office & Staff Catering</h3>
+                        <div class="pkg-guests">Contract-Based · 30–150+ Staff</div>
+                        <ul class="pkg-list">
+                            <li>Daily scheduled hot meal delivery for company personnel</li>
+                            <li>Trusted by heavy industry partners like AMCE Iveco</li>
+                            <li>Balanced fasting (YeTsom) and non-fasting menus</li>
+                            <li>Strict hygiene and premium food safety standards</li>
+                        </ul>
+                    </div>
+                    <button type="button" class="pkg-btn" data-pkg="Daily Office & Staff Catering Contract">Inquire
+                        Contract</button>
+                </div>
+
+                <div class="pkg-card featured">
+                    <div>
+                        <span class="pkg-tag">Tier 02 · Most Popular</span>
+                        <h3>Grand Wedding & Event Buffet</h3>
+                        <div class="pkg-guests">100 – 500+ Guests · Full Service</div>
+                        <ul class="pkg-list">
+                            <li>Complete stainless chafing-dish buffet setup</li>
+                            <li>Live Kitfo Buffet, Kurte, and traditional Agelgel spreads</li>
+                            <li>Diverse options including Mendi, pasta, and roasted specialties</li>
+                            <li>Dedicated on-site serving crew and logistics management</li>
+                        </ul>
+                    </div>
+                    <button type="button" class="pkg-btn"
+                        data-pkg="Grand Wedding & Event Buffet (100-500+ Guests)">Select Package</button>
+                </div>
+
+                <div class="pkg-card">
+                    <div>
+                        <span class="pkg-tag">Tier 03 · Family & Private</span>
+                        <h3>Agelgel & Home Gatherings</h3>
+                        <div class="pkg-guests">15 – 60 Guests · Drop-off / Setup</div>
+                        <ul class="pkg-list">
+                            <li>Traditional Mesob and wicker basket presentation</li>
+                            <li>Rich Doro Wat, Tibs, and hand-minced Kitfo</li>
+                            <li>Freshly baked Teff Injera, Kocho, and traditional sides</li>
+                            <li>Seamless doorstep delivery anywhere in Addis</li>
+                        </ul>
+                    </div>
+                    <button type="button" class="pkg-btn" data-pkg="Agelgel & Home Gathering (15-60 Guests)">Select
+                        Package</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE MENU HIGHLIGHTS -->
+    <section class="section menu" id="menu">
+        <div class="container">
+            <div class="eyebrow"><span>03</span><i></i><span>Menu Selections</span></div>
+            <h2 class="section-heading">Ethiopian tradition <em>meets global favorites.</em></h2>
+            <p class="section-sub">Filter through our diverse culinary catalog crafted fresh for dine-in, takeaway, and
+                fast delivery.</p>
+
+            <!-- Filter Buttons -->
+            <div class="menu-filters">
+                <button class="filter-btn active" data-filter="all">All Specialties</button>
+                <button class="filter-btn" data-filter="ethiopian">Ethiopian Traditional</button>
+                <button class="filter-btn" data-filter="mendi">Mendi & Rice</button>
+                <button class="filter-btn" data-filter="fastfood">Burgers & Pizza</button>
+            </div>
+
+            <div class="menu-grid" id="menuGrid">
+                <div class="dish-card" data-category="ethiopian" data-tilt>
+                    <span class="dish-badge">Signature Ethiopian</span>
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop"
+                        alt="Kitfo and Traditional Spreads" loading="lazy">
+                    <div class="dish-info">
+                        <div class="dish-num">01 · Traditional</div>
+                        <h3>Kitfo, Kurte & Agelgel Spreads</h3>
+                        <p>The lost, original taste of authentic Ethiopian cuisine prepared with pure niter kibbeh and
+                            aromatic spices.</p>
+                    </div>
+                </div>
+
+                <div class="dish-card" data-category="mendi" data-tilt>
+                    <span class="dish-badge">Middle Eastern Specialty</span>
+                    <img src="https://images.unsplash.com/photo-1541518763669-27fef04b14ea?q=80&w=800&auto=format&fit=crop"
+                        alt="Mendi Rice Specialty" loading="lazy">
+                    <div class="dish-info">
+                        <div class="dish-num">02 · Mendi</div>
+                        <h3>Traditional Slow-Cooked Mendi</h3>
+                        <p>Tender, melt-in-your-mouth meat served over deeply spiced, aromatic long-grain rice.</p>
+                    </div>
+                </div>
+
+                <div class="dish-card" data-category="fastfood" data-tilt>
+                    <span class="dish-badge">Fast & Casual</span>
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=800&auto=format&fit=crop"
+                        alt="Burger and Pizza" loading="lazy">
+                    <div class="dish-info">
+                        <div class="dish-num">03 · Burgers & Pizza</div>
+                        <h3>Enbla Burgers & Wood-Fired Pizzas</h3>
+                        <p>Juicy signature burgers, cheesy loaded pizzas, and crispy fries crafted for casual lunchers
+                            and families.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL COMMUNITY BANNER -->
+    <section class="section social-banner" id="social">
+        <div class="social-grid">
+            <div class="social-card">
+                <div class="social-info">
+                    <h3>TikTok Community</h3>
+                    <p>@enibla_catering</p>
+                    <a href="https://www.tiktok.com/@enibla_catering" target="_blank" class="social-btn">Follow on
+                        TikTok</a>
+                </div>
+                <div class="social-stats-badge">
+                    <strong>1,346</strong> Followers<br>
+                    <span style="font-size:.9rem; color:var(--cream-soft);">8,734 Likes</span>
+                </div>
+            </div>
+
+            <div class="social-card">
+                <div class="social-info">
+                    <h3>Facebook Page</h3>
+                    <p>Enbla Restaurant & Catering</p>
+                    <a href="https://web.facebook.com/share/p/1A9CPAqkrU/" target="_blank" class="social-btn">Visit
+                        Facebook</a>
+                </div>
+                <div class="social-stats-badge">
+                    <strong>Active</strong> Updates<br>
+                    <span style="font-size:.9rem; color:var(--cream-soft);">Verified Community</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATERING BANNER -->
+    <section class="catering-banner">
+        <video class="catering-video" autoplay muted loop playsinline
+            poster="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1920&auto=format&fit=crop">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-chef-cooking-in-a-pan-4550-large.mp4"
+                type="video/mp4">
+        </video>
+        <div class="catering-overlay"></div>
+        <div class="catering-content">
+            <div class="eyebrow"><span>04</span><i></i><span>Call For Order</span></div>
+            <h2>Hungry? <em>Let us cook for you today.</em></h2>
+            <p>Whether you want a quick takeaway meal, delivery to your office, or a grand wedding quotation—our lines
+                are open.</p>
+            <a href="tel:+251925157715" class="btn-primary magnetic">
+                <span>Call: 092 515 7715</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section gallery" id="gallery">
+        <div class="container">
+            <div class="eyebrow"><span>05</span><i></i><span>Visual Showcase</span></div>
+            <h2 class="section-heading">Fresh, hygienic, <em>unforgettable.</em></h2>
+        </div>
+        <div class="gallery-track">
+            <div class="gallery-item"><img
+                    src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1200&auto=format&fit=crop"
+                    alt="Buffet spread" loading="lazy"></div>
+            <div class="gallery-item"><img
+                    src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop"
+                    alt="Fresh pizza" loading="lazy"></div>
+            <div class="gallery-item"><img
+                    src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1200&auto=format&fit=crop"
+                    alt="Salad bowls" loading="lazy"></div>
+            <div class="gallery-item"><img
+                    src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop"
+                    alt="Restaurant interior" loading="lazy"></div>
+            <div class="gallery-item"><img
+                    src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=1200&auto=format&fit=crop"
+                    alt="Plated feast" loading="lazy"></div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="eyebrow"><span>06</span><i></i><span>Reach Our Team</span></div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Connect with <em>Enbla Catering.</em></h2>
+                    <div class="contact-block">
+                        <h4>Location</h4>
+                        <p>Summit, around Fiyel Bet<br>Addis Ababa, Ethiopia</p>
+                    </div>
+                    <div class="contact-block">
+                        <h4>Phone & WhatsApp Orders</h4>
+                        <a href="tel:+251925157715">092 515 7715</a><br>
+                        <a href="mailto:honeynure@gmail.com">honeynure@gmail.com</a>
+                    </div>
+                    <div class="contact-block">
+                        <h4>Hours</h4>
+                        <p>Monday – Sunday: 07:00 AM – 10:00 PM<br>(Catering & Delivery services active daily)</p>
+                    </div>
+                    <div class="contact-block">
+                        <h4>Social Media</h4>
+                        <a href="https://www.tiktok.com/@enibla_catering" target="_blank">TikTok:
+                            @enibla_catering</a><br>
+                        <a href="https://web.facebook.com/share/p/1A9CPAqkrU/" target="_blank">Facebook: Enbla
+                            Restaurant and Catering</a>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <h3 class="form-title">Send Inquiry via WhatsApp</h3>
+                    <p class="form-desc">Fill in your requirements below to instantly message our direct ordering line.
+                    </p>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="e.g. Dawit M." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="09..." required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="eventType">Service Type</label>
+                            <select id="eventType" required>
+                                <option value="Daily Office / Staff Catering Contract">Daily Office / Staff Catering
+                                    Contract</option>
+                                <option value="Grand Wedding & Event Buffet">Grand Wedding & Event Buffet</option>
+                                <option value="Agelgel & Home Gathering (15-60 Guests)">Agelgel & Family Gathering
+                                </option>
+                                <option value="Direct Food Order / Takeaway / Delivery">Direct Food Order / Takeaway /
+                                    Delivery</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="guests">Scale / Guests / Details</label>
+                            <input type="text" id="guests" placeholder="e.g. 50 staff or food order" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Additional Instructions or Menu Requests</label>
+                        <textarea id="notes" rows="2"
+                            placeholder="Mendi, Burger, Pizza, Ethiopian traditional spread, delivery address…"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="form-submit" id="submitBtn">Send Direct WhatsApp Message</button>
+                        <a href="tel:+251925157715" class="form-call-alt">Or Call Now: 092 515 7715</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>ENBLA</h3>
+                <p>እንብላ ኬተሪንግ · 10+ years of original Ethiopian foods, Mendi, burgers, and institutional staff catering
+                    in Summit, Addis Ababa.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Visit Us</h4>
+                <p>Summit, Fiyel Bet<br>Addis Ababa, Ethiopia</p>
+            </div>
+            <div class="footer-col">
+                <h4>Direct Line</h4>
+                <a href="tel:+251925157715">092 515 7715</a>
+                <a href="mailto:honeynure@gmail.com">honeynure@gmail.com</a>
+            </div>
+            <div class="footer-col">
+                <h4>Socials</h4>
+                <a href="https://www.tiktok.com/@enibla_catering" target="_blank">TikTok (1.3K+)</a>
+                <a href="https://web.facebook.com/share/p/1A9CPAqkrU/" target="_blank">Facebook Page</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Enbla Restaurant and Catering · Addis Ababa</span>
+            <span>10 Years Experience · Trusted Partner</span>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky Bottom Bar -->
+    <div class="mobile-sticky-bar">
+        <a href="tel:+251925157715" class="mob-btn-call">📞 Call Now</a>
+        <a href="#contact" class="mob-btn-wa">💬 Order via WhatsApp</a>
+    </div>
+
+    <!-- Three.js -->
+    <script type="importmap">
 {
   "imports": {
     "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
@@ -1022,647 +2116,333 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit;}
 }
 </script>
 
-<script type="module">
-import * as THREE from 'three';
-
-/* =========================================================
-   SETUP
-   ========================================================= */
-gsap.registerPlugin(ScrollTrigger);
-
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const isTouch = window.matchMedia('(pointer:coarse)').matches;
-
-/* LENIS */
-const lenis = new Lenis({
-  duration: prefersReducedMotion ? 0 : 1.15,
-  smoothWheel: !prefersReducedMotion,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-});
-if (prefersReducedMotion) lenis.start(); else lenis.stop();
-
-lenis.on('scroll', ScrollTrigger.update);
-gsap.ticker.add((time) => lenis.raf(time * 1000));
-gsap.ticker.lagSmoothing(0);
-
-/* =========================================================
-   CURSOR
-   ========================================================= */
-if (!isTouch) {
-  const dot = document.querySelector('.cursor-dot');
-  const ring = document.querySelector('.cursor-ring');
-  const label = document.querySelector('.cursor-label');
-
-  const dotX = gsap.quickTo(dot, 'x', { duration: 0.08, ease: 'power3.out' });
-  const dotY = gsap.quickTo(dot, 'y', { duration: 0.08, ease: 'power3.out' });
-  const ringX = gsap.quickTo(ring, 'x', { duration: 0.5, ease: 'power3.out' });
-  const ringY = gsap.quickTo(ring, 'y', { duration: 0.5, ease: 'power3.out' });
-
-  window.addEventListener('mousemove', (e) => {
-    dotX(e.clientX); dotY(e.clientY);
-    ringX(e.clientX); ringY(e.clientY);
-  });
-
-  document.querySelectorAll('a, button, .dish-card, .gallery-item, input, select, textarea').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      ring.classList.add('active');
-      label.textContent = el.classList.contains('dish-card') ? 'Taste' : 'View';
-    });
-    el.addEventListener('mouseleave', () => ring.classList.remove('active'));
-  });
-}
-
-/* MAGNETIC */
-if (!isTouch && !prefersReducedMotion) {
-  document.querySelectorAll('.magnetic').forEach(el => {
-    el.addEventListener('mousemove', (e) => {
-      const r = el.getBoundingClientRect();
-      const x = e.clientX - r.left - r.width / 2;
-      const y = e.clientY - r.top - r.height / 2;
-      gsap.to(el, { x: x * 0.3, y: y * 0.3, duration: 0.6, ease: 'power3.out' });
-    });
-    el.addEventListener('mouseleave', () => {
-      gsap.to(el, { x: 0, y: 0, duration: 0.9, ease: 'elastic.out(1, 0.3)' });
-    });
-  });
-}
-
-/* =========================================================
-   SPLIT HERO TITLE INTO CHARACTERS
-   ========================================================= */
-document.querySelectorAll('.hero-title .char').forEach((char, i) => {
-  // already spans, nothing to do
-});
-
-/* =========================================================
-   PRELOADER → ENTRANCE
-   ========================================================= */
-const nav = document.querySelector('.nav');
-
-function enterSite() {
-  lenis.start();
-
-  const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
-
-  tl.from('.nav-logo, .nav-links a, .nav-cta', {
-    y: -24, opacity: 0, stagger: 0.06, duration: 0.9
-  }, 0);
-
-  tl.from('.hero-eyebrow span', {
-    yPercent: 100, duration: 0.9, stagger: 0.08
-  }, 0.1);
-  tl.from('.hero-eyebrow i', {
-    scaleX: 0, duration: 0.8
-  }, 0.15);
-
-  tl.from('.hero-title .char', {
-    yPercent: 120, rotate: 8, opacity: 0,
-    duration: 1.1, stagger: 0.05
-  }, 0.3);
-
-  tl.from('.hero-title .amharic', {
-    y: 30, opacity: 0, duration: 1, ease: 'power3.out'
-  }, 0.9);
-
-  tl.from('.hero-sub', { y: 24, opacity: 0, duration: 1 }, 1.0);
-  tl.from('.hero-cta', { y: 24, opacity: 0, duration: 1 }, 1.15);
-  tl.from('.hero-side', { opacity: 0, duration: 1 }, 1.25);
-
-  tl.add(() => ScrollTrigger.refresh());
-}
-
-if (prefersReducedMotion) {
-  document.querySelector('.preloader').style.display = 'none';
-  enterSite();
-} else {
-  const preTl = gsap.timeline({ onComplete: enterSite });
-
-  preTl
-    .from('.preloader-word span', {
-      yPercent: 100, opacity: 0,
-      duration: 0.7, stagger: 0.06, ease: 'power4.out'
-    })
-    .from('.preloader-sub span', {
-      yPercent: 100, duration: 0.6, ease: 'power3.out'
-    }, '-=0.3')
-    .to('.preloader-bar i', {
-      width: '100%', duration: 1.2, ease: 'power2.inOut'
-    }, '-=0.4')
-    .to('.preloader', {
-      yPercent: -100, duration: 1.1, ease: 'power4.inOut'
-    }, '+=0.15');
-}
-
-/* =========================================================
-   NAV SCROLL
-   ========================================================= */
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-});
-
-/* MOBILE MENU */
-const navToggle = document.querySelector('.nav-toggle');
-const mobileMenu = document.getElementById('mobileMenu');
-
-navToggle.addEventListener('click', () => {
-  const open = mobileMenu.classList.toggle('open');
-  navToggle.classList.toggle('open', open);
-  lenis[open ? 'stop' : 'start']();
-});
-
-mobileMenu.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', (e) => {
-    e.preventDefault();
-    const id = a.getAttribute('href');
-    mobileMenu.classList.remove('open');
-    navToggle.classList.remove('open');
-    lenis.start();
-    setTimeout(() => lenis.scrollTo(id, { duration: 1.4 }), 350);
-  });
-});
-
-/* SMOOTH NAV */
-document.querySelectorAll('.nav-links a, .nav-cta, .btn-ghost, .hero-cta a').forEach(a => {
-  a.addEventListener('click', (e) => {
-    const href = a.getAttribute('href');
-    if (href && href.startsWith('#')) {
-      e.preventDefault();
-      lenis.scrollTo(href, { duration: 1.4 });
-    }
-  });
-});
-
-/* =========================================================
-   HERO 3D SCENE — JEBENA + FLOATING SPICES
-   ========================================================= */
-const heroCanvas = document.getElementById('hero-3d');
-const scene = new THREE.Scene();
-scene.fog = new THREE.FogExp2(0x0A0705, 0.09);
-
-const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 200);
-camera.position.set(0, 1.5, 6.5);
-camera.lookAt(0, 0.8, 0);
-
-const renderer = new THREE.WebGLRenderer({
-  canvas: heroCanvas,
-  alpha: true,
-  antialias: true
-});
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.3;
-
-/* Lights */
-scene.add(new THREE.AmbientLight(0xffffff, 0.3));
-
-const keyLight = new THREE.DirectionalLight(0xFFC44D, 3);
-keyLight.position.set(4, 6, 5);
-scene.add(keyLight);
-
-const fillLight = new THREE.DirectionalLight(0x8B2E1F, 1.8);
-fillLight.position.set(-5, 2, 3);
-scene.add(fillLight);
-
-const rimLight = new THREE.PointLight(0xFF6A00, 8, 15, 2);
-rimLight.position.set(0, 1.4, -3.5);
-scene.add(rimLight);
-
-const underLight = new THREE.PointLight(0xFF3D00, 4, 8, 2);
-underLight.position.set(0, -1.1, 1.2);
-scene.add(underLight);
-
-/* Soft glow texture */
-function makeGlowTexture(inner, outer) {
-  const size = 128;
-  const c = document.createElement('canvas');
-  c.width = c.height = size;
-  const ctx = c.getContext('2d');
-  const g = ctx.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
-  g.addColorStop(0, inner);
-  g.addColorStop(0.35, outer);
-  g.addColorStop(1, 'rgba(0,0,0,0)');
-  ctx.fillStyle = g;
-  ctx.fillRect(0, 0, size, size);
-  return new THREE.CanvasTexture(c);
-}
-const softGlow = makeGlowTexture('rgba(255,255,255,1)', 'rgba(255,180,80,0.55)');
-
-/* Jebena (coffee pot) */
-const jebena = new THREE.Group();
-jebena.position.y = -0.4;
-
-const clayMat = new THREE.MeshStandardMaterial({
-  color: 0x7A3C14, roughness: 0.42, metalness: 0.12
-});
-
-const profile = [
-  new THREE.Vector2(0.001, 0.00),
-  new THREE.Vector2(0.38, 0.00),
-  new THREE.Vector2(0.58, 0.10),
-  new THREE.Vector2(0.70, 0.38),
-  new THREE.Vector2(0.72, 0.66),
-  new THREE.Vector2(0.62, 0.94),
-  new THREE.Vector2(0.44, 1.16),
-  new THREE.Vector2(0.30, 1.36),
-  new THREE.Vector2(0.24, 1.58),
-  new THREE.Vector2(0.235, 1.78),
-  new THREE.Vector2(0.30, 1.92),
-  new THREE.Vector2(0.33, 1.96)
-];
-
-const body = new THREE.Mesh(new THREE.LatheGeometry(profile, 72), clayMat);
-jebena.add(body);
-
-const spout = new THREE.Mesh(
-  new THREE.CylinderGeometry(0.075, 0.135, 0.78, 20, 1, true),
-  clayMat
-);
-spout.position.set(0.44, 1.12, 0);
-spout.rotation.z = -0.62;
-jebena.add(spout);
-
-const handle = new THREE.Mesh(
-  new THREE.TorusGeometry(0.36, 0.055, 14, 48, Math.PI * 1.35),
-  clayMat
-);
-handle.position.set(-0.55, 1.02, 0);
-handle.rotation.z = -0.55;
-jebena.add(handle);
-
-const goldMat = new THREE.MeshStandardMaterial({
-  color: 0xFFC44D, roughness: 0.16, metalness: 0.95,
-  emissive: 0x412000, emissiveIntensity: 0.6
-});
-const lid = new THREE.Mesh(new THREE.SphereGeometry(0.135, 24, 20), goldMat);
-lid.position.y = 1.98;
-jebena.add(lid);
-
-const coffeeSurface = new THREE.Mesh(
-  new THREE.CircleGeometry(0.28, 40),
-  new THREE.MeshStandardMaterial({
-    color: 0x2A0E02, roughness: 0.15, metalness: 0.6,
-    emissive: 0xE8A33D, emissiveIntensity: 0.35
-  })
-);
-coffeeSurface.rotation.x = -Math.PI / 2;
-coffeeSurface.position.y = 1.80;
-jebena.add(coffeeSurface);
-
-scene.add(jebena);
-
-/* Ground glow */
-const groundGlow = new THREE.Mesh(
-  new THREE.PlaneGeometry(9, 9),
-  new THREE.MeshBasicMaterial({
-    map: softGlow, transparent: true, opacity: 0.28,
-    blending: THREE.AdditiveBlending, depthWrite: false, color: 0xE8A33D
-  })
-);
-groundGlow.rotation.x = -Math.PI / 2;
-groundGlow.position.y = -1.1;
-scene.add(groundGlow);
-
-/* Steam particles */
-const STEAM_COUNT = 80;
-const steamGeo = new THREE.BufferGeometry();
-const steamPos = new Float32Array(STEAM_COUNT * 3);
-const steamData = [];
-
-for (let i = 0; i < STEAM_COUNT; i++) {
-  const a = Math.random() * Math.PI * 2;
-  const r = Math.random() * 0.16;
-  steamPos[i*3] = Math.cos(a) * r;
-  steamPos[i*3+1] = 1.9 + Math.random() * 3.2;
-  steamPos[i*3+2] = Math.sin(a) * r;
-  steamData.push({
-    a, r,
-    y: steamPos[i*3+1],
-    speed: 0.0035 + Math.random() * 0.008,
-    wobble: Math.random() * Math.PI * 2,
-    wobbleSpeed: 0.4 + Math.random() * 0.9
-  });
-}
-steamGeo.setAttribute('position', new THREE.BufferAttribute(steamPos, 3));
-
-const steamMat = new THREE.PointsMaterial({
-  map: softGlow, color: 0xFFC874, size: 0.42, transparent: true,
-  opacity: 0.28, blending: THREE.AdditiveBlending,
-  depthWrite: false, sizeAttenuation: true
-});
-const steam = new THREE.Points(steamGeo, steamMat);
-steam.position.y = -0.4;
-scene.add(steam);
-
-/* Floating spices / coffee beans */
-const SPICE_COUNT = 60;
-const spiceGeo = new THREE.BufferGeometry();
-const spicePos = new Float32Array(SPICE_COUNT * 3);
-const spiceData = [];
-
-for (let i = 0; i < SPICE_COUNT; i++) {
-  const a = Math.random() * Math.PI * 2;
-  const r = 1.5 + Math.random() * 2.5;
-  const y = -1 + Math.random() * 4;
-  spicePos[i*3] = Math.cos(a) * r;
-  spicePos[i*3+1] = y;
-  spicePos[i*3+2] = Math.sin(a) * r;
-  spiceData.push({
-    a, r, y,
-    speed: 0.001 + Math.random() * 0.003,
-    phase: Math.random() * Math.PI * 2,
-    size: 0.05 + Math.random() * 0.12
-  });
-}
-spiceGeo.setAttribute('position', new THREE.BufferAttribute(spicePos, 3));
-
-const spiceMat = new THREE.PointsMaterial({
-  map: softGlow, color: 0xFF6A00, size: 0.14, transparent: true,
-  opacity: 0.7, blending: THREE.AdditiveBlending, depthWrite: false
-});
-const spices = new THREE.Points(spiceGeo, spiceMat);
-scene.add(spices);
-
-/* Pointer */
-const pointer = { x: 0, y: 0 };
-const target = { x: 0, y: 0 };
-
-window.addEventListener('mousemove', (e) => {
-  pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
-  pointer.y = (e.clientY / window.innerHeight) * 2 - 1;
-});
-
-/* Scroll */
-let scrollProgress = 0;
-ScrollTrigger.create({
-  trigger: '.hero',
-  start: 'top top',
-  end: 'bottom top',
-  scrub: 1,
-  onUpdate: (self) => { scrollProgress = self.progress; }
-});
-
-/* Animation loop */
-const clock = new THREE.Clock();
-
-function animateHero() {
-  requestAnimationFrame(animateHero);
-  const t = clock.getElapsedTime();
-
-  target.x += (pointer.x * 0.9 - target.x) * 0.045;
-  target.y += (-pointer.y * 0.5 - target.y) * 0.045;
-
-  camera.position.x = target.x;
-  camera.position.y = 1.5 + target.y + scrollProgress * 0.9;
-  camera.position.z = 6.5 + scrollProgress * 1.8;
-  camera.lookAt(0, 0.8 + scrollProgress * 0.3, 0);
-
-  if (!prefersReducedMotion) {
-    jebena.position.y = -0.4 + Math.sin(t * 0.7) * 0.055;
-    jebena.rotation.y = Math.sin(t * 0.22) * 0.28;
-    jebena.rotation.z = Math.sin(t * 0.45) * 0.02;
-
-    coffeeSurface.material.emissiveIntensity = 0.28 + Math.sin(t * 1.6) * 0.14;
-
-    /* Steam */
-    const sp = steamGeo.attributes.position.array;
-    for (let i = 0; i < STEAM_COUNT; i++) {
-      const d = steamData[i];
-      d.y += d.speed;
-      if (d.y > 5.2) d.y = 1.85;
-      const wob = Math.sin(t * d.wobbleSpeed + d.wobble) * 0.22;
-      const spread = 0.16 + (d.y - 1.85) * 0.16;
-      sp[i*3] = Math.cos(d.a + t * 0.18) * (d.r + spread) + wob;
-      sp[i*3+1] = d.y;
-      sp[i*3+2] = Math.sin(d.a + t * 0.18) * (d.r + spread) + wob;
-    }
-    steamGeo.attributes.position.needsUpdate = true;
-    steamMat.opacity = 0.20 + Math.sin(t * 0.9) * 0.06;
-
-    /* Spices */
-    const spc = spiceGeo.attributes.position.array;
-    for (let i = 0; i < SPICE_COUNT; i++) {
-      const d = spiceData[i];
-      d.y += d.speed;
-      if (d.y > 4.5) d.y = -1;
-      spc[i*3] = Math.cos(d.a + t * 0.35) * d.r;
-      spc[i*3+1] = d.y + Math.sin(t * 0.8 + d.phase) * 0.18;
-      spc[i*3+2] = Math.sin(d.a + t * 0.35) * d.r;
-    }
-    spiceGeo.attributes.position.needsUpdate = true;
-
-    underLight.intensity = 4.2 + Math.sin(t * 3.1) * 0.9 + Math.sin(t * 7.7) * 0.4;
-    rimLight.intensity = 8.4 + Math.cos(t * 2.3) * 1.1;
-  }
-
-  renderer.render(scene, camera);
-}
-animateHero();
-
-/* =========================================================
-   SCROLL ANIMATIONS
-   ========================================================= */
-
-/* About */
-gsap.fromTo('.about-visual img',
-  { scale: 1.15 },
-  { scale: 1, duration: 1.6, ease: 'power3.out',
-    scrollTrigger: { trigger: '.about-visual', start: 'top 82%' } }
-);
-gsap.fromTo('.about-visual',
-  { clipPath: 'inset(100% 0 0 0)' },
-  { clipPath: 'inset(0% 0 0 0)', duration: 1.3, ease: 'power4.out',
-    scrollTrigger: { trigger: '.about-visual', start: 'top 82%' } }
-);
-gsap.to('.about-visual img', {
-  yPercent: -8, ease: 'none',
-  scrollTrigger: { trigger: '.about', start: 'top bottom', end: 'bottom top', scrub: 0.8 }
-});
-gsap.from('.about-copy .section-heading', {
-  y: 40, opacity: 0, duration: 1.2, ease: 'power3.out',
-  scrollTrigger: { trigger: '.about-copy', start: 'top 82%' }
-});
-gsap.from('.about-copy .lead', {
-  y: 30, opacity: 0, duration: 1, ease: 'power3.out',
-  scrollTrigger: { trigger: '.about-copy', start: 'top 78%' }
-});
-gsap.from('.about-copy > p:not(.lead)', {
-  y: 24, opacity: 0, duration: 1, stagger: 0.12, ease: 'power3.out',
-  scrollTrigger: { trigger: '.about-copy', start: 'top 74%' }
-});
-gsap.from('.about-stat', {
-  y: 24, opacity: 0, duration: 0.9, stagger: 0.1, ease: 'power3.out',
-  scrollTrigger: { trigger: '.about-stats', start: 'top 88%' }
-});
-
-/* Menu */
-gsap.from('.menu .section-heading', {
-  y: 40, opacity: 0, duration: 1.2, ease: 'power3.out',
-  scrollTrigger: { trigger: '.menu', start: 'top 78%' }
-});
-gsap.from('.menu .section-sub', {
-  y: 24, opacity: 0, duration: 1, ease: 'power3.out',
-  scrollTrigger: { trigger: '.menu', start: 'top 74%' }
-});
-gsap.utils.toArray('.dish-card').forEach((card, i) => {
-  gsap.fromTo(card,
-    { clipPath: 'inset(100% 0 0 0)', y: 40 },
-    { clipPath: 'inset(0% 0 0 0)', y: 0, duration: 1.2, ease: 'power4.out',
-      delay: i * 0.1,
-      scrollTrigger: { trigger: card, start: 'top 88%' } }
-  );
-  gsap.from(card.querySelector('.dish-info'), {
-    y: 24, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.4 + i * 0.1,
-    scrollTrigger: { trigger: card, start: 'top 78%' }
-  });
-});
-
-/* Dish card 3D tilt */
-if (!isTouch && !prefersReducedMotion) {
-  document.querySelectorAll('[data-tilt]').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const r = card.getBoundingClientRect();
-      const x = e.clientX - r.left;
-      const y = e.clientY - r.top;
-      const rx = ((y - r.height / 2) / r.height) * -10;
-      const ry = ((x - r.width / 2) / r.width) * 10;
-      gsap.to(card, {
-        rotationX: rx, rotationY: ry,
-        transformPerspective: 900,
-        duration: 0.5, ease: 'power2.out'
-      });
-    });
-    card.addEventListener('mouseleave', () => {
-      gsap.to(card, { rotationX: 0, rotationY: 0, duration: 0.7, ease: 'power3.out' });
-    });
-  });
-}
-
-/* Catering */
-gsap.from('.catering-content .eyebrow', {
-  opacity: 0, y: 20, duration: 0.9, ease: 'power3.out',
-  scrollTrigger: { trigger: '.catering', start: 'top 78%' }
-});
-gsap.from('.catering-content h2', {
-  y: 40, opacity: 0, duration: 1.2, ease: 'power3.out',
-  scrollTrigger: { trigger: '.catering', start: 'top 75%' }
-});
-gsap.from('.catering-content p', {
-  y: 24, opacity: 0, duration: 1, ease: 'power3.out',
-  scrollTrigger: { trigger: '.catering', start: 'top 72%' }
-});
-gsap.from('.catering-content .btn-primary', {
-  y: 24, opacity: 0, duration: 1, ease: 'power3.out',
-  scrollTrigger: { trigger: '.catering', start: 'top 70%' }
-});
-
-/* Gallery — horizontal scroll */
-const galleryTrack = document.querySelector('.gallery-track');
-const galleryScrollAmount = () => galleryTrack.scrollWidth - window.innerWidth + 120;
-
-ScrollTrigger.matchMedia({
-  '(min-width: 901px)': function() {
-    gsap.to(galleryTrack, {
-      x: () => -galleryScrollAmount(),
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.gallery',
-        start: 'top top',
-        end: () => `+=${galleryScrollAmount()}`,
-        pin: true,
-        scrub: 1,
-        invalidateOnRefresh: true
-      }
-    });
-  }
-});
-
-gsap.from('.gallery .section-heading', {
-  y: 40, opacity: 0, duration: 1.2, ease: 'power3.out',
-  scrollTrigger: { trigger: '.gallery', start: 'top 78%' }
-});
-gsap.utils.toArray('.gallery-item').forEach((item, i) => {
-  gsap.fromTo(item,
-    { clipPath: 'inset(100% 0 0 0)' },
-    { clipPath: 'inset(0% 0 0 0)', duration: 1.1, ease: 'power4.out',
-      delay: i * 0.08,
-      scrollTrigger: { trigger: '.gallery', start: 'top 82%' } }
-  );
-});
-
-/* Contact */
-gsap.from('.contact-info h2', {
-  y: 40, opacity: 0, duration: 1.2, ease: 'power3.out',
-  scrollTrigger: { trigger: '.contact', start: 'top 78%' }
-});
-gsap.from('.contact-block', {
-  y: 24, opacity: 0, duration: 0.9, stagger: 0.1, ease: 'power3.out',
-  scrollTrigger: { trigger: '.contact-info', start: 'top 75%' }
-});
-gsap.from('.contact-form', {
-  y: 50, opacity: 0, duration: 1.2, ease: 'power3.out',
-  scrollTrigger: { trigger: '.contact-form', start: 'top 82%' }
-});
-
-/* Footer */
-gsap.from('.footer-inner > *', {
-  y: 30, opacity: 0, duration: 0.9, stagger: 0.1, ease: 'power3.out',
-  scrollTrigger: { trigger: '.footer', start: 'top 88%' }
-});
-
-/* =========================================================
-   CONTACT FORM
-   ========================================================= */
-const form = document.getElementById('contactForm');
-const submitBtn = document.getElementById('submitBtn');
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  const name = document.getElementById('name').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const guests = document.getElementById('guests').value;
-
-  if (!name || !phone || !guests) {
-    const original = submitBtn.textContent;
-    submitBtn.textContent = 'Please complete all fields';
-    gsap.fromTo(submitBtn, { x: -4 }, { x: 0, duration: 0.4, ease: 'elastic.out(1, 0.3)' });
-    setTimeout(() => { submitBtn.textContent = original; }, 2200);
-    return;
-  }
-
-  const original = submitBtn.textContent;
-  submitBtn.textContent = 'Sending…';
-  submitBtn.disabled = true;
-
-  setTimeout(() => {
-    submitBtn.textContent = '✓ Request received';
-    submitBtn.style.background = '#2D4A32';
-    gsap.fromTo(submitBtn, { scale: 1.04 }, { scale: 1, duration: 0.5, ease: 'elastic.out(1, 0.4)' });
-    form.reset();
-
-    setTimeout(() => {
-      submitBtn.textContent = original;
-      submitBtn.disabled = false;
-      submitBtn.style.background = '';
-    }, 3000);
-  }, 1400);
-});
-
-/* =========================================================
-   RESIZE
-   ========================================================= */
-let resizeTimer;
-window.addEventListener('resize', () => {
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-
-  clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(() => ScrollTrigger.refresh(), 250);
-});
-
-window.addEventListener('load', () => setTimeout(() => ScrollTrigger.refresh(), 400));
-</script>
+    <script type="module">
+        import * as THREE from 'three';
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isTouch = window.matchMedia('(pointer:coarse)').matches;
+
+        const lenis = new Lenis({
+            duration: prefersReducedMotion ? 0 : 1.15,
+            smoothWheel: !prefersReducedMotion,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+        });
+        if (prefersReducedMotion) lenis.start(); else lenis.stop();
+
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => lenis.raf(time * 1000));
+        gsap.ticker.lagSmoothing(0);
+
+        const now = new Date();
+        const hour = now.getHours();
+        const statusPill = document.getElementById('statusPill');
+        const statusText = document.getElementById('statusText');
+        if (hour >= 7 && hour < 22) {
+            statusPill.classList.remove('closed');
+            statusText.textContent = 'Open Now';
+        } else {
+            statusPill.classList.add('closed');
+            statusText.textContent = 'Closed (Opens 7 AM)';
+        }
+
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const dishCards = document.querySelectorAll('.dish-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.getAttribute('data-filter');
+
+                dishCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.classList.remove('hidden');
+                        gsap.fromTo(card, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        if (!isTouch) {
+            const dot = document.querySelector('.cursor-dot');
+            const ring = document.querySelector('.cursor-ring');
+            const label = document.querySelector('.cursor-label');
+
+            const dotX = gsap.quickTo(dot, 'x', { duration: 0.08, ease: 'power3.out' });
+            const dotY = gsap.quickTo(dot, 'y', { duration: 0.08, ease: 'power3.out' });
+            const ringX = gsap.quickTo(ring, 'x', { duration: 0.5, ease: 'power3.out' });
+            const ringY = gsap.quickTo(ring, 'y', { duration: 0.5, ease: 'power3.out' });
+
+            window.addEventListener('mousemove', (e) => {
+                dotX(e.clientX); dotY(e.clientY);
+                ringX(e.clientX); ringY(e.clientY);
+            });
+
+            document.querySelectorAll('a, button, .dish-card, .pkg-card, .social-card, .gallery-item, input, select, textarea').forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    ring.classList.add('active');
+                    label.textContent = el.classList.contains('dish-card') ? 'Taste' : 'Select';
+                });
+                el.addEventListener('mouseleave', () => ring.classList.remove('active'));
+            });
+        }
+
+        if (!isTouch && !prefersReducedMotion) {
+            document.querySelectorAll('.magnetic').forEach(el => {
+                el.addEventListener('mousemove', (e) => {
+                    const r = el.getBoundingClientRect();
+                    const x = e.clientX - r.left - r.width / 2;
+                    const y = e.clientY - r.top - r.height / 2;
+                    gsap.to(el, { x: x * 0.3, y: y * 0.3, duration: 0.6, ease: 'power3.out' });
+                });
+                el.addEventListener('mouseleave', () => {
+                    gsap.to(el, { x: 0, y: 0, duration: 0.9, ease: 'elastic.out(1, 0.3)' });
+                });
+            });
+        }
+
+        const nav = document.querySelector('.nav');
+
+        function enterSite() {
+            lenis.start();
+            const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+
+            tl.from('.nav-logo, .nav-links a, .nav-cta, .status-pill', {
+                y: -24, opacity: 0, stagger: 0.06, duration: 0.9
+            }, 0);
+
+            tl.from('.hero-badge', { y: 20, opacity: 0, duration: 0.8 }, 0.08);
+            tl.from('.hero-eyebrow span', { yPercent: 100, duration: 0.9, stagger: 0.08 }, 0.12);
+            tl.from('.hero-eyebrow i', { scaleX: 0, duration: 0.8 }, 0.16);
+
+            tl.from('.hero-title .char', {
+                yPercent: 120, rotate: 8, opacity: 0,
+                duration: 1.1, stagger: 0.05
+            }, 0.3);
+
+            tl.from('.hero-title .amharic', { y: 30, opacity: 0, duration: 1, ease: 'power3.out' }, 0.85);
+            tl.from('.hero-sub', { y: 24, opacity: 0, duration: 1 }, 0.95);
+            tl.from('.hero-cta', { y: 24, opacity: 0, duration: 1 }, 1.1);
+            tl.from('.hero-side', { opacity: 0, duration: 1 }, 1.2);
+
+            tl.add(() => ScrollTrigger.refresh());
+        }
+
+        if (prefersReducedMotion) {
+            document.querySelector('.preloader').style.display = 'none';
+            enterSite();
+        } else {
+            const preTl = gsap.timeline({ onComplete: enterSite });
+            preTl
+                .from('.preloader-word span', { yPercent: 100, opacity: 0, duration: 0.65, stagger: 0.05, ease: 'power4.out' })
+                .from('.preloader-sub span', { yPercent: 100, duration: 0.55, ease: 'power3.out' }, '-=0.3')
+                .to('.preloader-bar i', { width: '100%', duration: 1.0, ease: 'power2.inOut' }, '-=0.35')
+                .to('.preloader', { yPercent: -100, duration: 1.0, ease: 'power4.inOut' }, '+=0.1');
+        }
+
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        const navToggle = document.querySelector('.nav-toggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        navToggle.addEventListener('click', () => {
+            const open = mobileMenu.classList.toggle('open');
+            navToggle.classList.toggle('open', open);
+            lenis[open ? 'stop' : 'start']();
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', (e) => {
+                e.preventDefault();
+                const id = a.getAttribute('href');
+                mobileMenu.classList.remove('open');
+                navToggle.classList.remove('open');
+                lenis.start();
+                setTimeout(() => lenis.scrollTo(id, { duration: 1.4 }), 350);
+            });
+        });
+
+        document.querySelectorAll('.nav-links a, .nav-cta, .btn-ghost, .hero-cta a, .catering-content a, .footer-col a[href^="#"]').forEach(a => {
+            a.addEventListener('click', (e) => {
+                const href = a.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    lenis.scrollTo(href, { duration: 1.4 });
+                }
+            });
+        });
+
+        document.querySelectorAll('.pkg-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const pkgName = btn.getAttribute('data-pkg');
+                const select = document.getElementById('eventType');
+                for (let i = 0; i < select.options.length; i++) {
+                    if (select.options[i].value === pkgName) {
+                        select.selectedIndex = i;
+                        break;
+                    }
+                }
+                lenis.scrollTo('#contact', { duration: 1.4 });
+                setTimeout(() => document.getElementById('name').focus(), 1000);
+            });
+        });
+
+        /* 3D Scene */
+        const heroCanvas = document.getElementById('hero-3d');
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x0A0705, 0.09);
+
+        const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 200);
+        camera.position.set(0, 1.5, 6.5);
+        camera.lookAt(0, 0.8, 0);
+
+        const renderer = new THREE.WebGLRenderer({ canvas: heroCanvas, alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.3;
+
+        scene.add(new THREE.AmbientLight(0xffffff, 0.3));
+        const keyLight = new THREE.DirectionalLight(0xFFC44D, 3);
+        keyLight.position.set(4, 6, 5);
+        scene.add(keyLight);
+
+        const fillLight = new THREE.DirectionalLight(0x8B2E1F, 1.8);
+        fillLight.position.set(-5, 2, 3);
+        scene.add(fillLight);
+
+        const rimLight = new THREE.PointLight(0xFF6A00, 8, 15, 2);
+        rimLight.position.set(0, 1.4, -3.5);
+        scene.add(rimLight);
+
+        const underLight = new THREE.PointLight(0xFF3D00, 4, 8, 2);
+        underLight.position.set(0, -1.1, 1.2);
+        scene.add(underLight);
+
+        const jebena = new THREE.Group();
+        jebena.position.y = -0.4;
+        const clayMat = new THREE.MeshStandardMaterial({ color: 0x7A3C14, roughness: 0.42, metalness: 0.12 });
+
+        const profile = [
+            new THREE.Vector2(0.001, 0.00), new THREE.Vector2(0.38, 0.00),
+            new THREE.Vector2(0.58, 0.10), new THREE.Vector2(0.70, 0.38),
+            new THREE.Vector2(0.72, 0.66), new THREE.Vector2(0.62, 0.94),
+            new THREE.Vector2(0.44, 1.16), new THREE.Vector2(0.30, 1.36),
+            new THREE.Vector2(0.24, 1.58), new THREE.Vector2(0.235, 1.78),
+            new THREE.Vector2(0.30, 1.92), new THREE.Vector2(0.33, 1.96)
+        ];
+
+        const body = new THREE.Mesh(new THREE.LatheGeometry(profile, 72), clayMat);
+        jebena.add(body);
+
+        const spout = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.135, 0.78, 20, 1, true), clayMat);
+        spout.position.set(0.44, 1.12, 0);
+        spout.rotation.z = -0.62;
+        jebena.add(spout);
+
+        const handle = new THREE.Mesh(new THREE.TorusGeometry(0.36, 0.055, 14, 48, Math.PI * 1.35), clayMat);
+        handle.position.set(-0.55, 1.02, 0);
+        handle.rotation.z = -0.55;
+        jebena.add(handle);
+
+        const goldMat = new THREE.MeshStandardMaterial({ color: 0xFFC44D, roughness: 0.16, metalness: 0.95, emissive: 0x412000, emissiveIntensity: 0.6 });
+        const lid = new THREE.Mesh(new THREE.SphereGeometry(0.135, 24, 20), goldMat);
+        lid.position.y = 1.98;
+        jebena.add(lid);
+
+        const coffeeSurface = new THREE.Mesh(
+            new THREE.CircleGeometry(0.28, 40),
+            new THREE.MeshStandardMaterial({ color: 0x2A0E02, roughness: 0.15, metalness: 0.6, emissive: 0xE8A33D, emissiveIntensity: 0.35 })
+        );
+        coffeeSurface.rotation.x = -Math.PI / 2;
+        coffeeSurface.position.y = 1.80;
+        jebena.add(coffeeSurface);
+        scene.add(jebena);
+
+        const pointer = { x: 0, y: 0 };
+        const target = { x: 0, y: 0 };
+        window.addEventListener('mousemove', (e) => {
+            pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+            pointer.y = (e.clientY / window.innerHeight) * 2 - 1;
+        });
+
+        let scrollProgress = 0;
+        ScrollTrigger.create({
+            trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1,
+            onUpdate: (self) => { scrollProgress = self.progress; }
+        });
+
+        const clock = new THREE.Clock();
+        function animateHero() {
+            requestAnimationFrame(animateHero);
+            const t = clock.getElapsedTime();
+            target.x += (pointer.x * 0.9 - target.x) * 0.045;
+            target.y += (-pointer.y * 0.5 - target.y) * 0.045;
+
+            camera.position.x = target.x;
+            camera.position.y = 1.5 + target.y + scrollProgress * 0.9;
+            camera.position.z = 6.5 + scrollProgress * 1.8;
+            camera.lookAt(0, 0.8 + scrollProgress * 0.3, 0);
+
+            if (!prefersReducedMotion) {
+                jebena.position.y = -0.4 + Math.sin(t * 0.7) * 0.055;
+                jebena.rotation.y = Math.sin(t * 0.22) * 0.28;
+                coffeeSurface.material.emissiveIntensity = 0.28 + Math.sin(t * 1.6) * 0.14;
+            }
+            renderer.render(scene, camera);
+        }
+        animateHero();
+
+        gsap.fromTo('.about-visual img', { scale: 1.15 }, { scale: 1, duration: 1.6, ease: 'power3.out', scrollTrigger: { trigger: '.about-visual', start: 'top 82%' } });
+        gsap.from('.pkg-card', { y: 40, opacity: 0, duration: 1, stagger: 0.12, ease: 'power3.out', scrollTrigger: { trigger: '.packages-grid', start: 'top 82%' } });
+
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const eventType = document.getElementById('eventType').value;
+            const guests = document.getElementById('guests').value.trim();
+            const notes = document.getElementById('notes').value.trim();
+
+            const message =
+                `Hello Enbla Restaurant & Catering! 👋%0A%0A` +
+                `*Inquiry from Website*%0A` +
+                `• *Name:* ${encodeURIComponent(name)}%0A` +
+                `• *Phone:* ${encodeURIComponent(phone)}%0A` +
+                `• *Service:* ${encodeURIComponent(eventType)}%0A` +
+                `• *Details:* ${encodeURIComponent(guests)}%0A` +
+                (notes ? `• *Notes:* ${encodeURIComponent(notes)}%0A` : ``);
+
+            const whatsappUrl = `https://wa.me/251925157715?text=${message}`;
+
+            submitBtn.textContent = '✓ Opening WhatsApp…';
+            submitBtn.style.background = '#2D4A32';
+
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+                submitBtn.textContent = 'Send Direct WhatsApp Message';
+                submitBtn.style.background = '';
+            }, 600);
+        });
+
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => ScrollTrigger.refresh(), 250);
+        });
+    </script>
 </body>
+
 </html>
