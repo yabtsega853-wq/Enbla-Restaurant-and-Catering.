@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>EMBER — A Taste Worth Remembering</title>
-<meta name="description" content="EMBER — a fine dining experience in Mayfair, London. Seasonal menu, wine pairings, private events." />
+<title>Enbla Restaurant & Catering | እንብላ · Addis Ababa</title>
+<meta name="description" content="Enbla Restaurant and Catering — authentic Ethiopian flavors in Summit, Addis Ababa. Established 2018. Dine-in, takeaway, and catering." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Italiana&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Sans+Ethiopic:wght@400;700&display=swap" rel="stylesheet">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -16,30 +16,29 @@
 <script src="https://unpkg.com/split-type"></script>
 
 <style>
-/* ============ DESIGN TOKENS ============ */
 :root{
-  --bg:#111111;
-  --bg-2:#1A1A1A;
-  --text:#F5F1EA;
-  --gold:#C6A36B;
-  --gold-soft:rgba(198,163,107,.55);
-  --muted:#A7A29A;
-  --line:rgba(198,163,107,.22);
-  --line-soft:rgba(245,241,234,.08);
-  --serif:'Cormorant Garamond',serif;
-  --display:'Italiana',serif;
+  --bg:#0A0705;
+  --bg-2:#120C08;
+  --cream:#F5EDE2;
+  --cream-soft:#E8DCCB;
+  --gold:#E8A33D;
+  --gold-bright:#FFC44D;
+  --red:#8B2E1F;
+  --green:#2D4A32;
+  --muted:#A89880;
+  --line:rgba(232,163,61,.2);
+  --serif:'Playfair Display',serif;
+  --display:'Anton',sans-serif;
   --sans:'Inter',sans-serif;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
-
 html,body{
   background:var(--bg);
-  color:var(--text);
+  color:var(--cream);
   font-family:var(--sans);
   font-weight:300;
   -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
   overflow-x:hidden;
 }
 
@@ -50,29 +49,37 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit;}
 
 @media (pointer:fine){body{cursor:none;}}
 
-/* ============ GRAIN ============ */
-.grain{
-  position:fixed;inset:0;pointer-events:none;z-index:998;
-  opacity:.06;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+/* ============ CURSOR ============ */
+.cursor-dot{
+  position:fixed;top:0;left:0;pointer-events:none;z-index:9999;
+  width:8px;height:8px;border-radius:50%;
+  background:var(--gold);
+  transform:translate(-50%,-50%);
+  mix-blend-mode:difference;
 }
-
-/* ============ CUSTOM CURSOR ============ */
-.cursor-dot,.cursor-ring{
-  position:fixed;top:0;left:0;pointer-events:none;z-index:10000;
-  border-radius:50%;transform:translate(-50%,-50%);
-}
-.cursor-dot{width:6px;height:6px;background:var(--gold);}
 .cursor-ring{
-  width:40px;height:40px;border:1px solid var(--gold-soft);
-  transition:width .35s cubic-bezier(.16,1,.3,1),
-             height .35s cubic-bezier(.16,1,.3,1),
-             background .35s, border-color .35s;
+  position:fixed;top:0;left:0;pointer-events:none;z-index:9998;
+  width:48px;height:48px;border-radius:50%;
+  border:1px solid var(--gold);
+  transform:translate(-50%,-50%);
+  display:flex;align-items:center;justify-content:center;
+  transition:width .4s cubic-bezier(.16,1,.3,1),
+             height .4s cubic-bezier(.16,1,.3,1),
+             background .4s, border-color .4s;
+}
+.cursor-ring .cursor-label{
+  font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--bg);font-weight:600;
+  opacity:0;transform:scale(.6);
+  transition:opacity .3s,transform .3s;
 }
 .cursor-ring.active{
-  width:72px;height:72px;
-  background:rgba(198,163,107,.12);
+  width:88px;height:88px;
+  background:var(--gold);
   border-color:var(--gold);
+}
+.cursor-ring.active .cursor-label{
+  opacity:1;transform:scale(1);
 }
 @media (pointer:coarse){
   .cursor-dot,.cursor-ring{display:none;}
@@ -82,466 +89,581 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit;}
 /* ============ PRELOADER ============ */
 .preloader{
   position:fixed;inset:0;background:var(--bg);z-index:9999;
-  display:flex;flex-direction:column;justify-content:center;align-items:center;
-  gap:28px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
 }
-.preloader-logo{
-  font-family:var(--display);font-size:2.4rem;letter-spacing:.6em;
-  color:var(--gold);padding-left:.6em;
+.preloader-inner{text-align:center;position:relative;z-index:2;}
+.preloader-word{
+  display:flex;gap:2px;
+  font-family:var(--display);
+  font-size:clamp(52px,10vw,140px);
+  line-height:.85;letter-spacing:-.02em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:16px;
 }
-.preloader-line{width:120px;height:1px;background:var(--gold);transform-origin:center;}
-.preloader-tag{
-  font-family:var(--serif);font-style:italic;font-size:1rem;
-  color:var(--muted);letter-spacing:.15em;
+.preloader-word span{
+  display:inline-block;
+  will-change:transform, opacity;
+}
+.preloader-sub{
+  font-family:'Noto Sans Ethiopic',sans-serif;
+  font-size:clamp(20px,2.5vw,32px);
+  color:var(--cream-soft);
+  letter-spacing:.15em;
+  overflow:hidden;
+}
+.preloader-sub span{display:inline-block;}
+.preloader-bar{
+  width:160px;height:2px;background:rgba(255,255,255,.1);
+  margin:32px auto 0;overflow:hidden;
+}
+.preloader-bar i{
+  display:block;width:0;height:100%;
+  background:var(--gold);
 }
 
 /* ============ NAV ============ */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:28px 48px;
+  padding:24px 44px;
   display:flex;justify-content:space-between;align-items:center;
-  transition:padding .5s cubic-bezier(.16,1,.3,1),
-             background .5s, backdrop-filter .5s, border-color .5s;
+  transition:padding .5s, background .4s, backdrop-filter .4s;
 }
 .nav.scrolled{
-  padding:16px 48px;
-  background:rgba(17,17,17,.72);
+  padding:14px 44px;
+  background:rgba(10,7,5,.82);
   backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--line-soft);
+  border-bottom:1px solid var(--line);
 }
 .nav-logo{
-  font-family:var(--display);font-size:1.35rem;letter-spacing:.55em;
-  color:var(--gold);padding-left:.55em;
+  font-family:var(--display);font-size:1.2rem;
+  letter-spacing:.3em;padding-left:.3em;
+  color:var(--gold);
 }
-.nav-links{display:flex;gap:40px;}
+.nav-logo span{
+  font-family:'Noto Sans Ethiopic',sans-serif;
+  font-size:.9rem;margin-left:8px;
+  color:var(--cream-soft);
+}
+.nav-links{display:flex;gap:34px;}
 .nav-links a{
-  position:relative;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--text);opacity:.85;transition:opacity .3s,color .3s;
+  position:relative;
+  font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--cream-soft);
+  overflow:hidden;
+}
+.nav-links a span{
+  display:inline-block;
+  transition:transform .5s cubic-bezier(.76,0,.24,1);
 }
 .nav-links a::after{
-  content:'';position:absolute;left:0;right:0;bottom:-6px;height:1px;
-  background:var(--gold);transform:scaleX(0);transform-origin:right;
-  transition:transform .5s cubic-bezier(.16,1,.3,1);
+  content:attr(data-label);
+  position:absolute;left:0;top:100%;
+  display:inline-block;
+  transition:transform .5s cubic-bezier(.76,0,.24,1);
+  color:var(--gold);
 }
-.nav-links a:hover{opacity:1;color:var(--gold);}
-.nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
+.nav-links a:hover span{transform:translateY(-100%);}
+.nav-links a:hover::after{transform:translateY(-100%);}
 .nav-cta{
-  font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;
-  padding:14px 26px;border:1px solid var(--gold);color:var(--gold);
-  transition:background .4s,color .4s;
+  font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;
+  padding:12px 22px;
+  background:var(--gold);color:var(--bg);
+  font-weight:500;
+  transition:background .4s;
 }
-.nav-cta:hover{background:var(--gold);color:var(--bg);}
+.nav-cta:hover{background:var(--gold-bright);}
+
 .nav-toggle{display:none;width:32px;height:32px;position:relative;}
 .nav-toggle span{
-  position:absolute;left:0;right:0;height:1px;background:var(--text);
-  transition:transform .4s, opacity .4s;
+  position:absolute;left:0;right:0;height:1px;background:var(--cream);
+  transition:transform .4s;
 }
 .nav-toggle span:nth-child(1){top:12px;}
 .nav-toggle span:nth-child(2){top:20px;}
-.nav-toggle.open span:nth-child(1){transform:translateY(4px) rotate(45deg);background:var(--gold);}
-.nav-toggle.open span:nth-child(2){transform:translateY(-4px) rotate(-45deg);background:var(--gold);}
+.nav-toggle.open span:nth-child(1){transform:translateY(4px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){transform:translateY(-4px) rotate(-45deg);}
 
-/* Mobile menu */
 .mobile-menu{
   position:fixed;inset:0;z-index:99;background:var(--bg);
-  display:flex;align-items:center;justify-content:center;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  gap:22px;
   clip-path:inset(0 0 100% 0);pointer-events:none;
-  transition:clip-path .7s cubic-bezier(.76,0,.24,1);
+  transition:clip-path .8s cubic-bezier(.76,0,.24,1);
 }
 .mobile-menu.open{clip-path:inset(0 0 0% 0);pointer-events:auto;}
-.mobile-menu-inner{
-  display:flex;flex-direction:column;gap:26px;align-items:center;
+.mobile-menu a{
+  font-family:var(--display);font-size:2rem;letter-spacing:.06em;
+  color:var(--cream);text-transform:uppercase;
+  opacity:.4;transition:color .3s,opacity .3s;
 }
-.mobile-menu-inner a{
-  font-family:var(--serif);font-size:2.4rem;letter-spacing:.04em;
-  color:var(--text);opacity:.4;transition:color .3s,opacity .3s;
-}
-.mobile-menu-inner a:hover{color:var(--gold);opacity:1;}
+.mobile-menu a:hover{color:var(--gold);opacity:1;}
 
 /* ============ HERO ============ */
 .hero{
-  position:relative;height:100vh;min-height:680px;
-  display:flex;justify-content:center;align-items:center;
+  position:relative;
+  height:100vh;min-height:720px;
   overflow:hidden;
+  background:var(--bg);
 }
-.hero-bg{
-  position:absolute;inset:0;z-index:0;
-  background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2000&auto=format&fit=crop');
-  background-size:cover;background-position:center;
-  transform:scale(1.18);will-change:transform;
+.hero-video{
+  position:absolute;inset:0;
+  width:100%;height:100%;object-fit:cover;
+  z-index:0;
+  opacity:.6;
 }
-.hero-bg::after{
-  content:'';position:absolute;inset:0;
+.hero-overlay{
+  position:absolute;inset:0;
   background:
-    radial-gradient(ellipse at center, rgba(17,17,17,.35) 0%, rgba(17,17,17,.75) 70%, rgba(17,17,17,.95) 100%),
-    linear-gradient(180deg, rgba(17,17,17,.7) 0%, rgba(17,17,17,.3) 30%, rgba(17,17,17,.85) 100%);
+    radial-gradient(ellipse at 30% 40%, rgba(10,7,5,.4) 0%, rgba(10,7,5,.88) 70%),
+    linear-gradient(180deg, rgba(10,7,5,.7) 0%, transparent 40%, rgba(10,7,5,.9) 100%);
+  z-index:1;
+}
+#hero-3d{
+  position:absolute;inset:0;
+  z-index:2;
+  pointer-events:none;
 }
 .hero-content{
-  position:relative;z-index:2;text-align:center;
-  max-width:1100px;padding:0 40px;
+  position:relative;z-index:3;
+  height:100%;
+  display:flex;flex-direction:column;
+  justify-content:center;
+  padding:0 6vw;
+  max-width:1400px;
+  margin:0 auto;
 }
 .hero-eyebrow{
-  display:inline-flex;align-items:center;gap:14px;
-  font-size:.68rem;letter-spacing:.5em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:36px;
+  display:flex;align-items:center;gap:16px;
+  font-size:.62rem;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:28px;
+  overflow:hidden;
 }
-.hero-eyebrow::before,
-.hero-eyebrow::after{
-  content:'';width:36px;height:1px;background:var(--gold-soft);
+.hero-eyebrow span{display:inline-block;}
+.hero-eyebrow i{
+  display:block;width:28px;height:1px;background:var(--gold);
 }
 .hero-title{
-  font-family:var(--serif);font-weight:300;
-  font-size:clamp(54px,9.5vw,150px);
-  line-height:.94;letter-spacing:-.02em;
-  margin-bottom:34px;
+  font-family:var(--display);
+  font-size:clamp(70px,13vw,200px);
+  line-height:.82;letter-spacing:-.03em;
+  text-transform:uppercase;
+  color:var(--cream);
+  margin-bottom:12px;
 }
-.hero-title .line{
-  display:block;overflow:hidden;
-  padding:.04em 0;
-}
-.hero-title .word{
-  display:inline-block;
-  will-change:transform;
-}
-.hero-title em{
-  font-style:italic;color:var(--gold);
-  font-weight:400;
+.hero-title .line{display:block;overflow:hidden;padding:.04em 0;}
+.hero-title .char{display:inline-block;will-change:transform;}
+.hero-title .amharic{
+  display:block;
+  font-family:'Noto Sans Ethiopic',sans-serif;
+  font-size:.35em;
+  letter-spacing:.02em;
+  color:var(--gold);
+  margin-top:8px;
+  line-height:1.2;
 }
 .hero-sub{
-  font-size:1rem;line-height:1.75;color:var(--muted);
-  max-width:520px;margin:0 auto 48px;
-  font-weight:300;
+  font-family:var(--serif);font-style:italic;
+  font-size:clamp(15px,1.4vw,22px);
+  color:var(--cream-soft);
+  max-width:520px;line-height:1.6;
+  margin-bottom:40px;
 }
-.hero-cta{display:inline-flex;}
-.btn{
-  position:relative;display:inline-flex;align-items:center;gap:14px;
-  padding:22px 44px;
+.hero-cta{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:20px 40px;
   background:var(--gold);color:var(--bg);
-  font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;font-weight:500;
-  overflow:hidden;
-  transition:gap .4s, background .4s, color .4s;
+  font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;font-weight:600;
+  position:relative;overflow:hidden;
+  transition:gap .4s;
 }
-.btn span{position:relative;z-index:2;}
-.btn::before{
-  content:'';position:absolute;inset:0;background:var(--bg-2);
+.btn-primary::before{
+  content:'';position:absolute;inset:0;background:var(--gold-bright);
   transform:translateY(101%);transition:transform .5s cubic-bezier(.76,0,.24,1);
 }
-.btn:hover::before{transform:translateY(0);}
-.btn:hover{color:var(--gold);gap:22px;}
-.btn svg{width:14px;height:14px;transition:transform .4s;position:relative;z-index:2;}
-.btn:hover svg{transform:translateX(4px);}
+.btn-primary:hover::before{transform:translateY(0);}
+.btn-primary:hover{gap:20px;}
+.btn-primary span,.btn-primary svg{position:relative;z-index:2;}
+.btn-primary svg{width:14px;height:14px;transition:transform .4s;}
+.btn-primary:hover svg{transform:translateX(4px);}
+.btn-ghost{
+  font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;
+  padding:20px 0;
+  color:var(--cream-soft);
+  border-bottom:1px solid var(--line);
+  transition:color .3s,border-color .3s;
+}
+.btn-ghost:hover{color:var(--gold);border-color:var(--gold);}
 
-.hero-scroll{
-  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
-  z-index:3;display:flex;flex-direction:column;align-items:center;gap:14px;
-  font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;
-  color:var(--muted);opacity:.7;
+.hero-side{
+  position:absolute;
+  right:44px;bottom:100px;
+  z-index:4;
+  text-align:right;
+  font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--muted);
+  line-height:2.2;
 }
-.hero-scroll i{
-  display:block;width:1px;height:48px;background:linear-gradient(to bottom,var(--gold),transparent);
-  transform-origin:top;animation:scrollPulse 2.4s ease-in-out infinite;
-}
-@keyframes scrollPulse{
-  0%,100%{transform:scaleY(.3);opacity:.4;}
-  50%{transform:scaleY(1);opacity:1;}
+.hero-side span{display:block;}
+.hero-side .dot{
+  display:inline-block;width:5px;height:5px;border-radius:50%;
+  background:var(--gold);margin-right:8px;vertical-align:middle;
 }
 
 /* ============ MARQUEE ============ */
 .marquee{
-  position:relative;overflow:hidden;white-space:nowrap;
-  padding:32px 0;
-  border-top:1px solid var(--line-soft);
-  border-bottom:1px solid var(--line-soft);
-  background:var(--bg);
+  padding:24px 0;
+  background:var(--red);
+  color:var(--cream);
+  overflow:hidden;
+  position:relative;z-index:4;
 }
 .marquee-inner{
-  display:inline-flex;align-items:center;gap:56px;
-  animation:marquee 40s linear infinite;
+  display:inline-flex;align-items:center;gap:44px;
+  white-space:nowrap;
+  animation:marqueeScroll 28s linear infinite;
 }
 .marquee-inner span{
+  font-family:var(--display);
+  font-size:clamp(28px,4vw,56px);
+  text-transform:uppercase;
+  letter-spacing:.02em;
+  line-height:1;
+}
+.marquee-inner em{
   font-family:var(--serif);font-style:italic;
-  font-size:2rem;letter-spacing:.05em;
-  color:var(--gold);opacity:.75;
+  color:var(--gold-bright);
+  font-size:.7em;
 }
-.marquee-inner span.dot{
-  font-family:var(--sans);font-style:normal;
-  font-size:1rem;opacity:.4;
-}
-@keyframes marquee{to{transform:translateX(-50%);}}
+@keyframes marqueeScroll{to{transform:translateX(-50%);}}
 
-/* ============ SECTIONS ============ */
-.section{padding:150px 48px;position:relative;}
-.container{max-width:1440px;margin:0 auto;}
+/* ============ SECTION BASE ============ */
+.section{padding:140px 6vw;position:relative;}
+.container{max-width:1400px;margin:0 auto;}
 
-.section-label{
-  display:flex;align-items:center;gap:20px;
-  margin-bottom:50px;
+.eyebrow{
+  display:flex;align-items:center;gap:16px;
+  font-size:.6rem;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:32px;
+  overflow:hidden;
 }
-.section-label-num{
+.eyebrow span{display:inline-block;}
+.eyebrow i{display:block;width:24px;height:1px;background:var(--gold);}
+
+.section-heading{
+  font-family:var(--display);
+  font-size:clamp(48px,7vw,120px);
+  line-height:.85;letter-spacing:-.02em;
+  text-transform:uppercase;
+  color:var(--cream);
+  margin-bottom:24px;
+}
+.section-heading em{
   font-family:var(--serif);font-style:italic;
-  font-size:1rem;color:var(--gold);
+  color:var(--gold);
+  font-weight:400;
+  letter-spacing:-.02em;
 }
-.section-label-line{
-  width:48px;height:1px;background:var(--gold-soft);
+.section-sub{
+  font-family:var(--serif);font-style:italic;
+  font-size:1.1rem;line-height:1.6;
+  color:var(--cream-soft);
+  max-width:480px;
+  margin-bottom:60px;
 }
-.section-label-text{
-  font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;
+
+/* ============ ABOUT ============ */
+.about{background:var(--bg);}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:center;
+}
+.about-visual{
+  position:relative;
+  height:560px;
+  overflow:hidden;
+}
+.about-visual img{
+  width:100%;height:100%;object-fit:cover;
+  transform:scale(1.15);
+  will-change:transform;
+}
+.about-visual::after{
+  content:'Est. 2018';
+  position:absolute;bottom:24px;left:24px;
+  font-family:var(--serif);font-style:italic;
+  font-size:.95rem;color:var(--gold);
+  letter-spacing:.1em;
+  z-index:2;
+}
+.about-copy p{
+  font-size:1rem;line-height:1.9;color:var(--cream-soft);
+  margin-bottom:20px;max-width:520px;
+}
+.about-copy p.lead{
+  font-family:var(--serif);font-style:italic;
+  font-size:1.35rem;line-height:1.5;
+  color:var(--cream);
+  margin-bottom:28px;
+}
+.about-stats{
+  display:flex;gap:48px;margin-top:44px;
+  padding-top:32px;border-top:1px solid var(--line);
+}
+.about-stat h4{
+  font-family:var(--display);font-size:2rem;
+  color:var(--gold);line-height:1;
+  margin-bottom:8px;
+}
+.about-stat span{
+  font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;
   color:var(--muted);
 }
 
-.section-heading{
-  font-family:var(--serif);font-weight:300;
-  font-size:clamp(38px,5.5vw,80px);
-  line-height:1.05;letter-spacing:-.015em;
-  max-width:900px;
-}
-.section-heading em{font-style:italic;color:var(--gold);font-weight:400;}
-
-/* ============ STORY ============ */
-.story{}
-.story-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:100px;
-  align-items:center;
-}
-.story-visual{
-  position:relative;
-  height:680px;
-  overflow:visible;
-}
-.story-img-main{
-  position:absolute;top:0;left:0;
-  width:80%;height:100%;
-  overflow:hidden;
-}
-.story-img-main img,
-.story-img-accent img{
-  width:100%;height:100%;object-fit:cover;
-  will-change:transform;
-}
-.story-img-accent{
-  position:absolute;bottom:-48px;right:0;
-  width:52%;height:58%;
-  overflow:hidden;
-  border:12px solid var(--bg);
-  z-index:2;
-}
-.story-img-accent img{transform:scale(1.05);}
-.story-copy p{
-  color:var(--muted);font-size:1rem;line-height:1.9;
-  margin-bottom:22px;max-width:520px;
-}
-.story-copy p.lead{
-  font-family:var(--serif);font-size:1.35rem;font-style:italic;
-  color:var(--text);line-height:1.6;margin-bottom:32px;
-}
-.story-link{
-  display:inline-flex;align-items:center;gap:14px;
-  margin-top:32px;
-  font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;
-  color:var(--gold);
-  padding-bottom:8px;
-  border-bottom:1px solid transparent;
-  transition:border-color .4s, gap .4s;
-}
-.story-link:hover{border-bottom-color:var(--gold);gap:20px;}
-
-/* ============ MENU ============ */
-.menu{}
-.menu-header{
-  display:flex;justify-content:space-between;align-items:flex-end;
-  flex-wrap:wrap;gap:30px;margin-bottom:80px;
-}
-.menu-intro{
-  font-size:.95rem;line-height:1.8;color:var(--muted);
-  max-width:340px;
-}
+/* ============ MENU HIGHLIGHTS ============ */
+.menu{background:var(--bg-2);}
 .menu-grid{
   display:grid;grid-template-columns:repeat(3,1fr);
-  gap:60px 48px;
+  gap:40px;
+  margin-top:40px;
 }
-.dish{cursor:pointer;}
-.dish-img{
-  aspect-ratio:4/5;overflow:hidden;
-  margin-bottom:26px;position:relative;
-  background:var(--bg-2);
+.dish-card{
+  position:relative;
+  height:520px;
+  overflow:hidden;
+  background:var(--bg);
+  border:1px solid var(--line);
+  transition:transform .6s cubic-bezier(.16,1,.3,1), box-shadow .6s;
+  transform-style:preserve-3d;
+  will-change:transform;
 }
-.dish-img::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 60%,rgba(17,17,17,.4));
-  opacity:0;transition:opacity .6s;
+.dish-card:hover{
+  box-shadow:0 30px 60px rgba(0,0,0,.5);
 }
-.dish:hover .dish-img::after{opacity:1;}
-.dish-img img{
+.dish-card img{
   width:100%;height:100%;object-fit:cover;
-  transition:transform 1.3s cubic-bezier(.16,1,.3,1);
+  opacity:.7;
+  transition:opacity .5s, transform .8s cubic-bezier(.16,1,.3,1);
 }
-.dish:hover .dish-img img{transform:scale(1.07);}
-.dish-meta{
-  display:flex;justify-content:space-between;align-items:baseline;
-  font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:14px;
+.dish-card:hover img{opacity:1;transform:scale(1.06);}
+.dish-card::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(10,7,5,.9));
+  pointer-events:none;
 }
-.dish h3{
-  font-family:var(--serif);font-weight:400;
-  font-size:1.75rem;line-height:1.2;letter-spacing:-.01em;
-  margin-bottom:12px;
-  transition:color .3s;
+.dish-info{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:32px;z-index:2;
 }
-.dish:hover h3{color:var(--gold);}
-.dish p{
-  font-size:.9rem;line-height:1.7;color:var(--muted);
+.dish-num{
+  font-size:.58rem;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:12px;
+}
+.dish-info h3{
+  font-family:var(--serif);font-style:italic;
+  font-size:1.8rem;line-height:1.15;
+  color:var(--cream);
+  margin-bottom:8px;
+}
+.dish-info p{
+  font-size:.9rem;line-height:1.6;
+  color:var(--cream-soft);
+  max-width:280px;
+}
+.dish-price{
+  position:absolute;top:24px;right:24px;
+  font-family:var(--display);font-size:1.1rem;
+  color:var(--gold);
+  z-index:2;
+}
+
+/* ============ CATERING ============ */
+.catering{
+  position:relative;
+  min-height:80vh;
+  display:flex;align-items:center;
+  overflow:hidden;
+  background:var(--bg);
+}
+.catering-video{
+  position:absolute;inset:0;
+  width:100%;height:100%;object-fit:cover;
+  opacity:.4;
+  z-index:0;
+}
+.catering-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,var(--bg) 0%,rgba(10,7,5,.6) 60%,rgba(10,7,5,.3) 100%);
+  z-index:1;
+}
+.catering-content{
+  position:relative;z-index:2;
+  max-width:1400px;margin:0 auto;
+  padding:0 6vw;
+  width:100%;
+}
+.catering-content h2{
+  font-family:var(--display);
+  font-size:clamp(48px,7vw,100px);
+  line-height:.85;letter-spacing:-.02em;
+  text-transform:uppercase;
+  color:var(--cream);
+  margin-bottom:24px;
+}
+.catering-content h2 em{
+  font-family:var(--serif);font-style:italic;
+  color:var(--gold);font-weight:400;
+}
+.catering-content p{
+  font-family:var(--serif);font-style:italic;
+  font-size:1.2rem;line-height:1.6;
+  color:var(--cream-soft);
+  max-width:440px;
+  margin-bottom:36px;
 }
 
 /* ============ GALLERY ============ */
-.gallery{padding-bottom:170px;}
-.gallery-header{
-  display:flex;justify-content:space-between;align-items:flex-end;
-  flex-wrap:wrap;gap:30px;margin-bottom:60px;
-}
-.gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(12,1fr);
-  grid-auto-rows:70px;
-  gap:16px;
+.gallery{background:var(--bg-2);overflow:hidden;}
+.gallery-track{
+  display:flex;gap:24px;
+  padding:0 6vw;
+  will-change:transform;
 }
 .gallery-item{
-  position:relative;overflow:hidden;
-  background:var(--bg-2);
+  flex-shrink:0;
+  width:32vw;height:60vh;
+  overflow:hidden;
+  position:relative;
 }
-.gallery-item:nth-child(1){grid-column:1/8;grid-row:1/7;}
-.gallery-item:nth-child(2){grid-column:8/13;grid-row:1/4;}
-.gallery-item:nth-child(3){grid-column:8/13;grid-row:4/7;}
-.gallery-item:nth-child(4){grid-column:1/5;grid-row:7/11;}
-.gallery-item:nth-child(5){grid-column:5/9;grid-row:7/11;}
-.gallery-item:nth-child(6){grid-column:9/13;grid-row:7/11;}
 .gallery-item img{
   width:100%;height:100%;object-fit:cover;
-  transition:transform 1.5s cubic-bezier(.16,1,.3,1);
+  transition:transform 1s cubic-bezier(.16,1,.3,1);
 }
 .gallery-item:hover img{transform:scale(1.08);}
-.gallery-item::after{
-  content:'';position:absolute;inset:0;
-  background:rgba(17,17,17,.2);
-  opacity:0;transition:opacity .5s;
-}
-.gallery-item:hover::after{opacity:1;}
 
-/* ============ RESERVATION ============ */
-.reservation{}
-.res-grid{
+/* ============ CONTACT ============ */
+.contact{background:var(--bg);}
+.contact-grid{
   display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:start;
+}
+.contact-info h2{
+  font-family:var(--display);
+  font-size:clamp(48px,6vw,96px);
+  line-height:.85;letter-spacing:-.02em;
+  text-transform:uppercase;
+  color:var(--cream);
+  margin-bottom:32px;
+}
+.contact-info h2 em{
+  font-family:var(--serif);font-style:italic;
+  color:var(--gold);font-weight:400;
+}
+.contact-block{
+  margin-bottom:28px;
+  padding-bottom:28px;
+  border-bottom:1px solid var(--line);
+}
+.contact-block h4{
+  font-size:.6rem;letter-spacing:.36em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:10px;font-weight:500;
+}
+.contact-block p,
+.contact-block a{
+  font-size:1.05rem;line-height:1.7;
+  color:var(--cream-soft);
+  transition:color .3s;
+}
+.contact-block a:hover{color:var(--gold);}
+
+.contact-form{
   background:var(--bg-2);
-  min-height:680px;
+  padding:48px;
+  border:1px solid var(--line);
 }
-.res-img{
-  position:relative;overflow:hidden;
-  background-image:url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1400&auto=format&fit=crop');
-  background-size:cover;background-position:center;
-}
-.res-img::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(17,17,17,.2),rgba(17,17,17,.6));
-}
-.res-form{
-  padding:80px;
-  display:flex;flex-direction:column;justify-content:center;
-}
-.res-form .section-label{margin-bottom:32px;}
-.res-form h2{
-  font-family:var(--serif);font-weight:300;
-  font-size:clamp(34px,3.4vw,52px);
-  line-height:1.05;margin-bottom:16px;
-  letter-spacing:-.015em;
-}
-.res-form h2 em{font-style:italic;color:var(--gold);font-weight:400;}
-.res-form > p{
-  color:var(--muted);font-size:.95rem;line-height:1.75;
-  margin-bottom:44px;max-width:420px;
-}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;}
-.form-group{position:relative;}
+.form-group{position:relative;margin-bottom:28px;}
 .form-group label{
-  display:block;font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:10px;
+  display:block;
+  font-size:.58rem;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:8px;
 }
 .form-group input,
 .form-group select,
 .form-group textarea{
-  width:100%;padding:12px 0;
-  background:transparent;border:none;border-bottom:1px solid var(--line-soft);
-  color:var(--text);font-family:var(--sans);font-size:.95rem;font-weight:300;
-  outline:none;transition:border-color .4s;
+  width:100%;padding:10px 0;
+  background:transparent;border:none;
+  border-bottom:1px solid var(--line);
+  color:var(--cream);
+  font-family:var(--sans);font-size:.95rem;font-weight:300;
+  outline:none;transition:border-color .3s;
   -webkit-appearance:none;appearance:none;
 }
-.form-group select{
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' stroke='%23C6A36B' stroke-width='1' fill='none'/></svg>");
-  background-repeat:no-repeat;
-  background-position:right 4px center;
-  padding-right:20px;
-}
-.form-group select option{background:var(--bg-2);color:var(--text);}
 .form-group input:focus,
 .form-group select:focus,
-.form-group textarea:focus{border-bottom-color:var(--gold);}
+.form-group textarea:focus{
+  border-bottom-color:var(--gold);
+}
 .form-group textarea{resize:none;min-height:60px;}
-.res-form .btn{margin-top:32px;align-self:flex-start;}
+.form-submit{
+  width:100%;padding:18px;
+  background:var(--gold);color:var(--bg);
+  font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;
+  font-weight:600;
+  margin-top:12px;
+  transition:background .3s;
+}
+.form-submit:hover{background:var(--gold-bright);}
 
 /* ============ FOOTER ============ */
 .footer{
-  padding:100px 48px 40px;
+  padding:70px 6vw 36px;
   background:var(--bg);
-  border-top:1px solid var(--line-soft);
-  position:relative;overflow:hidden;
+  border-top:1px solid var(--line);
 }
 .footer-inner{
-  max-width:1440px;margin:0 auto;
+  max-width:1400px;margin:0 auto;
   display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:60px;
-  position:relative;z-index:2;
+  gap:50px;
+  padding-bottom:50px;
+  border-bottom:1px solid var(--line);
 }
 .footer-brand h3{
-  font-family:var(--display);font-size:2rem;letter-spacing:.5em;
-  color:var(--gold);margin-bottom:20px;padding-left:.5em;
+  font-family:var(--display);font-size:1.5rem;
+  letter-spacing:.3em;padding-left:.3em;
+  color:var(--gold);
+  margin-bottom:14px;
 }
 .footer-brand p{
-  color:var(--muted);font-size:.9rem;line-height:1.8;max-width:280px;
+  font-family:var(--serif);font-style:italic;
+  font-size:.95rem;color:var(--cream-soft);
+  line-height:1.7;max-width:280px;
 }
 .footer-col h4{
-  font-size:.62rem;letter-spacing:.35em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:24px;font-weight:500;
+  font-size:.58rem;letter-spacing:.36em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:18px;font-weight:500;
 }
 .footer-col a,
 .footer-col p{
-  display:block;color:var(--muted);font-size:.88rem;
-  line-height:2;transition:color .3s;
+  display:block;
+  font-size:.85rem;line-height:2;
+  color:var(--cream-soft);
+  transition:color .3s;
 }
 .footer-col a:hover{color:var(--gold);}
-.footer-watermark{
-  position:absolute;bottom:-30px;left:0;right:0;
-  font-family:var(--serif);font-style:italic;font-weight:300;
-  font-size:clamp(120px,22vw,340px);
-  text-align:center;line-height:.8;letter-spacing:-.02em;
-  color:rgba(198,163,107,.045);
-  pointer-events:none;user-select:none;
-  white-space:nowrap;
-}
 .footer-bottom{
-  max-width:1440px;margin:60px auto 0;
-  padding-top:32px;border-top:1px solid var(--line-soft);
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
-  font-size:.72rem;color:var(--muted);letter-spacing:.1em;
-  position:relative;z-index:2;
+  max-width:1400px;margin:0 auto;
+  padding-top:28px;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:16px;
+  font-size:.68rem;color:var(--muted);
 }
-.footer-bottom .demo-note{color:rgba(198,163,107,.65);font-style:italic;}
-
-/* ============ REVEAL HELPERS ============ */
-.reveal-mask{
-  display:inline-block;overflow:hidden;
-  vertical-align:top;
-}
-.reveal-mask > *{
-  display:inline-block;
-  will-change:transform;
+.footer-bottom .demo-note{
+  font-style:italic;color:var(--gold);
 }
 
 /* ============ RESPONSIVE ============ */
@@ -549,359 +671,360 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit;}
   .menu-grid{grid-template-columns:repeat(2,1fr);}
   .footer-inner{grid-template-columns:2fr 1fr 1fr;}
 }
-
 @media (max-width:900px){
-  .section{padding:100px 24px;}
-  .nav{padding:20px 24px;}
-  .nav.scrolled{padding:14px 24px;}
-  .nav-links{display:none;}
-  .nav-cta{display:none;}
+  .section{padding:100px 5vw;}
+  .nav{padding:18px 22px;}
+  .nav.scrolled{padding:12px 22px;}
+  .nav-links,.nav-cta{display:none;}
   .nav-toggle{display:block;}
 
-  .story-grid{grid-template-columns:1fr;gap:60px;}
-  .story-visual{height:520px;}
-  .story-img-accent{bottom:-24px;width:56%;height:52%;border-width:8px;}
+  .hero-content{padding:0 6vw;}
+  .hero-title{font-size:clamp(60px,15vw,110px);}
+  .hero-side{display:none;}
 
-  .menu-grid{grid-template-columns:1fr;gap:48px;}
-  .menu-header{flex-direction:column;align-items:flex-start;}
+  .about-grid{grid-template-columns:1fr;gap:50px;}
+  .about-visual{height:400px;}
 
-  .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:auto;gap:12px;}
-  .gallery-item{grid-column:auto !important;grid-row:auto !important;aspect-ratio:1;}
+  .menu-grid{grid-template-columns:1fr;gap:24px;}
+  .dish-card{height:440px;}
 
-  .res-grid{grid-template-columns:1fr;}
-  .res-img{min-height:320px;}
-  .res-form{padding:52px 28px;}
-  .form-row{grid-template-columns:1fr;gap:20px;}
+  .gallery-item{width:70vw;height:44vh;}
 
-  .footer{padding:80px 24px 32px;}
-  .footer-inner{grid-template-columns:1fr 1fr;gap:44px;}
+  .contact-grid{grid-template-columns:1fr;gap:50px;}
+  .contact-form{padding:32px;}
+
+  .footer-inner{grid-template-columns:1fr 1fr;gap:36px;}
   .footer-brand{grid-column:1/-1;}
-
-  .hero-title{font-size:clamp(48px,13vw,90px);}
-  .hero-sub{font-size:.92rem;padding:0 20px;}
 }
-
 @media (max-width:520px){
-  .hero-eyebrow{font-size:.6rem;letter-spacing:.4em;}
-  .hero-eyebrow::before,.hero-eyebrow::after{width:20px;}
-  .btn{padding:18px 32px;font-size:.66rem;}
-  .menu-intro{display:none;}
+  .hero-title{font-size:clamp(48px,16vw,90px);}
+  .hero-sub{font-size:14px;}
+  .btn-primary{padding:16px 28px;font-size:.64rem;}
   .footer-inner{grid-template-columns:1fr;}
-  .marquee-inner span{font-size:1.5rem;}
 }
-
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{
     animation-duration:.01ms !important;
     animation-iteration-count:1 !important;
     transition-duration:.01ms !important;
   }
+  .marquee-inner{animation:none;}
 }
 </style>
 </head>
 <body>
 
-<!-- Grain -->
-<div class="grain" aria-hidden="true"></div>
-
 <!-- Cursor -->
 <div class="cursor-dot" aria-hidden="true"></div>
-<div class="cursor-ring" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true">
+  <span class="cursor-label">View</span>
+</div>
 
 <!-- Preloader -->
 <div class="preloader" aria-hidden="true">
-  <div class="preloader-logo">EMBER</div>
-  <div class="preloader-line"></div>
-  <div class="preloader-tag">A Taste Worth Remembering.</div>
+  <div class="preloader-inner">
+    <div class="preloader-word">
+      <span>E</span><span>N</span><span>B</span><span>L</span><span>A</span>
+    </div>
+    <div class="preloader-sub"><span>እንብላ</span></div>
+    <div class="preloader-bar"><i></i></div>
+  </div>
 </div>
 
 <!-- Nav -->
 <nav class="nav">
-  <a href="#top" class="nav-logo">EMBER</a>
+  <a href="#top" class="nav-logo">ENBLA <span>እንብላ</span></a>
   <div class="nav-links">
-    <a href="#story">Our Story</a>
-    <a href="#menu">Menu</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#reservation">Reserve</a>
+    <a href="#about" data-label="About"><span>About</span></a>
+    <a href="#menu" data-label="Menu"><span>Menu</span></a>
+    <a href="#catering" data-label="Catering"><span>Catering</span></a>
+    <a href="#gallery" data-label="Gallery"><span>Gallery</span></a>
+    <a href="#contact" data-label="Contact"><span>Contact</span></a>
   </div>
-  <a href="#reservation" class="nav-cta">Book a Table</a>
-  <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+  <a href="#contact" class="nav-cta">Book a Table</a>
+  <button class="nav-toggle" aria-label="Menu">
     <span></span><span></span>
   </button>
 </nav>
 
 <!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-inner">
-    <a href="#story">Our Story</a>
-    <a href="#menu">Menu</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#reservation">Reserve</a>
-  </div>
+  <a href="#about">About</a>
+  <a href="#menu">Menu</a>
+  <a href="#catering">Catering</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#contact">Contact</a>
 </div>
 
-<!-- Hero -->
+<!-- HERO -->
 <section class="hero" id="top">
-  <div class="hero-bg"></div>
+  <video class="hero-video" autoplay muted loop playsinline
+    poster="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=1920&auto=format&fit=crop">
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-coffee-beans-falling-in-slow-motion-42017-large.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <canvas id="hero-3d"></canvas>
+
   <div class="hero-content">
-    <span class="hero-eyebrow">Fine Dining · Mayfair, London</span>
+    <div class="hero-eyebrow">
+      <span>Summit · Addis Ababa</span>
+      <i></i>
+      <span>Est. 2018</span>
+    </div>
     <h1 class="hero-title">
-      <span class="line"><span class="word">A</span> <span class="word">Taste</span> <span class="word">Worth</span></span>
-      <span class="line"><span class="word"><em>Remembering.</em></span></span>
+      <span class="line"><span class="char">E</span><span class="char">N</span><span class="char">B</span><span class="char">L</span><span class="char">A</span></span>
+      <span class="amharic">እንብላ</span>
     </h1>
-    <p class="hero-sub">Where exceptional ingredients meet unforgettable experiences — a seasonal menu crafted by fire, patience, and craft.</p>
+    <p class="hero-sub">Authentic Ethiopian flavors, served the way they should be — with family, fire, and time.</p>
     <div class="hero-cta">
-      <a href="#menu" class="btn magnetic">
-        <span>Explore Our Menu</span>
+      <a href="#menu" class="btn-primary magnetic">
+        <span>Explore the Menu</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
+      <a href="#contact" class="btn-ghost">Reserve a Table</a>
     </div>
   </div>
-  <div class="hero-scroll">
-    <i></i>
-    <span>Scroll</span>
+
+  <div class="hero-side">
+    <span><span class="dot"></span>Open · Closes 10 PM</span>
+    <span>092 515 7715</span>
   </div>
 </section>
 
 <!-- Marquee -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee-inner">
-    <span>Fine Dining</span><span class="dot">·</span>
-    <span>Seasonal Menu</span><span class="dot">·</span>
-    <span>Wine Pairings</span><span class="dot">·</span>
-    <span>Private Events</span><span class="dot">·</span>
-    <span>Chef's Table</span><span class="dot">·</span>
-    <span>Fine Dining</span><span class="dot">·</span>
-    <span>Seasonal Menu</span><span class="dot">·</span>
-    <span>Wine Pairings</span><span class="dot">·</span>
-    <span>Private Events</span><span class="dot">·</span>
-    <span>Chef's Table</span><span class="dot">·</span>
+    <span>Rice & Beef Fried Rice</span><em>·</em>
+    <span>Kurte & Bufe</span><em>·</em>
+    <span>Tebesatebes & Kitfo</span><em>·</em>
+    <span>Dine-in · Takeaway · Catering</span><em>·</em>
+    <span>Rice & Beef Fried Rice</span><em>·</em>
+    <span>Kurte & Bufe</span><em>·</em>
+    <span>Tebesatebes & Kitfo</span><em>·</em>
+    <span>Dine-in · Takeaway · Catering</span><em>·</em>
   </div>
 </div>
 
-<!-- Story -->
-<section class="section story" id="story">
+<!-- ABOUT -->
+<section class="section about" id="about">
   <div class="container">
-    <div class="section-label">
-      <span class="section-label-num">01</span>
-      <span class="section-label-line"></span>
-      <span class="section-label-text">Our Story</span>
+    <div class="eyebrow">
+      <span>01</span><i></i><span>Our Story</span>
     </div>
-    <div class="story-grid">
-      <div class="story-visual">
-        <div class="story-img-main reveal-clip">
-          <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1200&auto=format&fit=crop" alt="EMBER dining room" loading="lazy">
-        </div>
-        <div class="story-img-accent reveal-clip">
-          <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=900&auto=format&fit=crop" alt="Signature plating" loading="lazy">
-        </div>
+    <div class="about-grid">
+      <div class="about-visual">
+        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=1200&auto=format&fit=crop" alt="Enbla dining room" loading="lazy">
       </div>
-      <div class="story-copy">
-        <h2 class="section-heading">More than a meal.<br><em>An experience.</em></h2>
-        <p class="lead">EMBER was born from a single idea — that fire, patience, and craft can turn a meal into a memory.</p>
-        <p>In 2018, we opened a small room on a quiet Mayfair street with ten tables and one wood-fired oven. Every plate that left the pass carried the same conviction: that the best food is honest, seasonal, and served with intention.</p>
-        <p>Today the room is still intimate, the menu still changes with the seasons, and every evening still ends the same way — with a table of guests who don't want to leave.</p>
-        <a href="#menu" class="story-link">
-          Discover the menu
-          <svg width="18" height="14" viewBox="0 0 24 12" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M0 6h22M16 1l6 5-6 5"/></svg>
-        </a>
+      <div class="about-copy">
+        <h2 class="section-heading">A family table.<br><em>An Ethiopian welcome.</em></h2>
+        <p class="lead">Enbla began in 2018 with a simple idea — that a meal should feel like coming home, even if you've never been here before.</p>
+        <p>We are a family restaurant in Summit, around Fiyel Bet. We cook the food we grew up with: kitfo, kurte, tebesatebes, slow-cooked beef fried rice. We serve it the way our families served it — generously, and without hurry.</p>
+        <p>Whether you are dining in, taking away, or planning a celebration for two hundred, we bring the same fire and the same care to every plate.</p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <h4>2018</h4>
+            <span>Established</span>
+          </div>
+          <div class="about-stat">
+            <h4>5.0</h4>
+            <span>Guest rating</span>
+          </div>
+          <div class="about-stat">
+            <h4>100%</h4>
+            <span>Teff injera</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Menu -->
+<!-- MENU HIGHLIGHTS -->
 <section class="section menu" id="menu">
   <div class="container">
-    <div class="section-label">
-      <span class="section-label-num">02</span>
-      <span class="section-label-line"></span>
-      <span class="section-label-text">Signature Menu</span>
+    <div class="eyebrow">
+      <span>02</span><i></i><span>Menu Highlights</span>
     </div>
-    <div class="menu-header">
-      <h2 class="section-heading">Six plates.<br><em>One memory.</em></h2>
-      <p class="menu-intro">A seasonal tasting that changes with the harvest. Each dish is composed to sit quietly beside the one before it — and the one after.</p>
-    </div>
+    <h2 class="section-heading">The plates <em>people come back for.</em></h2>
+    <p class="section-sub">A short list from a long menu. Every plate is made to order.</p>
+
     <div class="menu-grid">
-      <article class="dish">
-        <div class="dish-img">
-          <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=900&auto=format&fit=crop" alt="Seared Hokkaido Scallops" loading="lazy">
+      <div class="dish-card" data-tilt>
+        <span class="dish-price">—</span>
+        <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=80&w=800&auto=format&fit=crop" alt="Rice with Beef Fried Rice" loading="lazy">
+        <div class="dish-info">
+          <div class="dish-num">01 · Signature</div>
+          <h3>Rice with Beef Fried Rice</h3>
+          <p>Wok-fired rice, tender beef, Ethiopian spices. The one everyone orders twice.</p>
         </div>
-        <div class="dish-meta"><span>01 · Sea</span><span>$52</span></div>
-        <h3>Hokkaido Scallops</h3>
-        <p>Seared over binchotan, hazelnut beurre blanc, citrus pearls and micro shiso.</p>
-      </article>
-
-      <article class="dish">
-        <div class="dish-img">
-          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=900&auto=format&fit=crop" alt="Wagyu Tenderloin" loading="lazy">
+      </div>
+      <div class="dish-card" data-tilt>
+        <span class="dish-price">—</span>
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="Kurte and Bufe" loading="lazy">
+        <div class="dish-info">
+          <div class="dish-num">02 · Traditional</div>
+          <h3>Kurte & Bufe</h3>
+          <p>Hand-cut raw beef, mitmita, and awaze. Served the old way, with injera.</p>
         </div>
-        <div class="dish-meta"><span>02 · Land</span><span>$128</span></div>
-        <h3>Wagyu Tenderloin</h3>
-        <p>A5 Miyazaki wagyu, black garlic jus, smoked bone marrow, charred shallot.</p>
-      </article>
-
-      <article class="dish">
-        <div class="dish-img">
-          <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?q=80&w=900&auto=format&fit=crop" alt="Black Truffle Tagliatelle" loading="lazy">
+      </div>
+      <div class="dish-card" data-tilt>
+        <span class="dish-price">—</span>
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=800&auto=format&fit=crop" alt="Tebesatebes and Kitfo" loading="lazy">
+        <div class="dish-info">
+          <div class="dish-num">03 · House Favourite</div>
+          <h3>Tebesatebes & Kitfo</h3>
+          <p>Minced beef, niter kibbeh, cardamom. Rich, warm, and quietly perfect.</p>
         </div>
-        <div class="dish-meta"><span>03 · Pasta</span><span>$68</span></div>
-        <h3>Black Truffle Tagliatelle</h3>
-        <p>Hand-rolled pasta, fresh Périgord truffle, aged parmesan cream, cracked pepper.</p>
-      </article>
-
-      <article class="dish">
-        <div class="dish-img">
-          <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=900&auto=format&fit=crop" alt="Miso Glazed Sea Bass" loading="lazy">
-        </div>
-        <div class="dish-meta"><span>04 · Sea</span><span>$74</span></div>
-        <h3>Miso Sea Bass</h3>
-        <p>Chilean sea bass, shiro miso glaze, charred baby leek, yuzu kosho.</p>
-      </article>
-
-      <article class="dish">
-        <div class="dish-img">
-          <img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?q=80&w=900&auto=format&fit=crop" alt="Challans Duck" loading="lazy">
-        </div>
-        <div class="dish-meta"><span>05 · Land</span><span>$82</span></div>
-        <h3>Challans Duck</h3>
-        <p>Roasted duck breast, blood orange gastrique, endive tarte tatin.</p>
-      </article>
-
-      <article class="dish">
-        <div class="dish-img">
-          <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=900&auto=format&fit=crop" alt="Valrhona Fondant" loading="lazy">
-        </div>
-        <div class="dish-meta"><span>06 · Sweet</span><span>$28</span></div>
-        <h3>Valrhona Fondant</h3>
-        <p>70% dark chocolate, salted caramel centre, vanilla bean ice cream.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- Gallery -->
-<section class="section gallery" id="gallery">
-  <div class="container">
-    <div class="section-label">
-      <span class="section-label-num">03</span>
-      <span class="section-label-line"></span>
-      <span class="section-label-text">Gallery</span>
-    </div>
-    <div class="gallery-header">
-      <h2 class="section-heading">The room,<br><em>the fire, the food.</em></h2>
-    </div>
-    <div class="gallery-grid">
-      <a class="gallery-item" href="#">
-        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1400&auto=format&fit=crop" alt="Dining room" loading="lazy">
-      </a>
-      <a class="gallery-item" href="#">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=900&auto=format&fit=crop" alt="Plated dish" loading="lazy">
-      </a>
-      <a class="gallery-item" href="#">
-        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=900&auto=format&fit=crop" alt="Fresh ingredients" loading="lazy">
-      </a>
-      <a class="gallery-item" href="#">
-        <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=900&auto=format&fit=crop" alt="Steak plating" loading="lazy">
-      </a>
-      <a class="gallery-item" href="#">
-        <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=900&auto=format&fit=crop" alt="Fish dish" loading="lazy">
-      </a>
-      <a class="gallery-item" href="#">
-        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=900&auto=format&fit=crop" alt="Signature plate" loading="lazy">
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Reservation -->
-<section class="section reservation" id="reservation">
-  <div class="container">
-    <div class="section-label">
-      <span class="section-label-num">04</span>
-      <span class="section-label-line"></span>
-      <span class="section-label-text">Reservations</span>
-    </div>
-    <div class="res-grid">
-      <div class="res-img" role="img" aria-label="EMBER dining room at night"></div>
-      <div class="res-form">
-        <h2>Reserve<br><em>your table.</em></h2>
-        <p>We welcome guests Tuesday through Sunday, from 6pm. For parties of six or more, or for private events, please write to us directly.</p>
-        <form id="reservationForm" novalidate>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" required autocomplete="name">
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required autocomplete="email">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="date">Date</label>
-              <input type="date" id="date" name="date" required>
-            </div>
-            <div class="form-group">
-              <label for="guests">Guests</label>
-              <select id="guests" name="guests" required>
-                <option value="">Select…</option>
-                <option>1 guest</option>
-                <option>2 guests</option>
-                <option>3 guests</option>
-                <option>4 guests</option>
-                <option>5 guests</option>
-                <option>6 guests</option>
-                <option>7+ guests</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="notes">Notes</label>
-            <textarea id="notes" name="notes" rows="2" placeholder="Allergies, celebrations, anything we should know…"></textarea>
-          </div>
-          <button type="submit" class="btn magnetic" id="reserveBtn">
-            <span>Request Reservation</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-        </form>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
+<!-- CATERING -->
+<section class="catering" id="catering">
+  <video class="catering-video" autoplay muted loop playsinline
+    poster="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1920&auto=format&fit=crop">
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-chef-cooking-in-a-pan-4550-large.mp4" type="video/mp4">
+  </video>
+  <div class="catering-overlay"></div>
+  <div class="catering-content">
+    <div class="eyebrow">
+      <span>03</span><i></i><span>Catering</span>
+    </div>
+    <h2>We bring <em>the fire</em> to you.</h2>
+    <p>From a family gathering of twelve to a wedding of three hundred — Enbla caters the same food, with the same care, wherever you are.</p>
+    <a href="#contact" class="btn-primary magnetic">
+      <span>Enquire about catering</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section gallery" id="gallery">
+  <div class="container">
+    <div class="eyebrow">
+      <span>04</span><i></i><span>The Room</span>
+    </div>
+    <h2 class="section-heading">Come <em>hungry.</em></h2>
+  </div>
+  <div class="gallery-track">
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop" alt="Dining room" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop" alt="Plated dish" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1200&auto=format&fit=crop" alt="Fresh ingredients" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=1200&auto=format&fit=crop" alt="Steak plating" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=1200&auto=format&fit=crop" alt="Fish dish" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="eyebrow">
+      <span>05</span><i></i><span>Find Us</span>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Come <em>eat</em> with us.</h2>
+        <div class="contact-block">
+          <h4>Location</h4>
+          <p>Summit, around Fiyel Bet<br>2V54+QRF, Addis Ababa<br>Ethiopia</p>
+        </div>
+        <div class="contact-block">
+          <h4>Contact</h4>
+          <a href="tel:+251925157715">092 515 7715</a><br>
+          <a href="tel:+251925157715">+251 925 157 715</a>
+        </div>
+        <div class="contact-block">
+          <h4>Hours</h4>
+          <p>Open daily · Closes 10 PM</p>
+        </div>
+        <div class="contact-block">
+          <h4>Service</h4>
+          <p>Dine-in · Takeaway · Catering</p>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label for="name">Your name</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="guests">Guests</label>
+          <select id="guests" required>
+            <option value="">Select…</option>
+            <option>1–2</option>
+            <option>3–4</option>
+            <option>5–8</option>
+            <option>9+ / Catering</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="notes">Notes</label>
+          <textarea id="notes" rows="2" placeholder="Date, time, occasion…"></textarea>
+        </div>
+        <button type="submit" class="form-submit" id="submitBtn">Send Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <h3>EMBER</h3>
-      <p>A Taste Worth Remembering.<br>Fine dining, Mayfair, London.</p>
+      <h3>ENBLA</h3>
+      <p>እንብላ · Authentic Ethiopian flavors in Summit, Addis Ababa. Family restaurant, established 2018.</p>
     </div>
     <div class="footer-col">
       <h4>Visit</h4>
-      <p>24 Kingsway<br>Mayfair, London<br>W1X 4DF</p>
+      <p>Summit, Fiyel Bet<br>2V54+QRF, Addis Ababa</p>
     </div>
     <div class="footer-col">
-      <h4>Contact</h4>
-      <a href="tel:+442079460958">+44 20 7946 0958</a>
-      <a href="mailto:hello@ember.example">hello@ember.example</a>
+      <h4>Call</h4>
+      <a href="tel:+251925157715">092 515 7715</a>
+      <a href="tel:+251925157715">+251 925 157 715</a>
     </div>
     <div class="footer-col">
       <h4>Follow</h4>
       <a href="#">Instagram</a>
-      <a href="#">Pinterest</a>
-      <a href="#">Journal</a>
+      <a href="#">TikTok</a>
+      <a href="#">Telegram</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 EMBER Restaurant. All rights reserved.</span>
-    <span class="demo-note">Fictional brand · Demo content for portfolio use</span>
+    <span>© 2025 Enbla Restaurant & Catering · Addis Ababa</span>
+    <span class="demo-note">Demo website · Not affiliated with a live booking system</span>
   </div>
-  <div class="footer-watermark" aria-hidden="true">Ember</div>
 </footer>
 
+<!-- Three.js -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
 <script type="module">
+import * as THREE from 'three';
+
 /* =========================================================
    SETUP
    ========================================================= */
@@ -910,9 +1033,7 @@ gsap.registerPlugin(ScrollTrigger);
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isTouch = window.matchMedia('(pointer:coarse)').matches;
 
-/* =========================================================
-   LENIS SMOOTH SCROLL
-   ========================================================= */
+/* LENIS */
 const lenis = new Lenis({
   duration: prefersReducedMotion ? 0 : 1.15,
   smoothWheel: !prefersReducedMotion,
@@ -925,11 +1046,13 @@ gsap.ticker.add((time) => lenis.raf(time * 1000));
 gsap.ticker.lagSmoothing(0);
 
 /* =========================================================
-   CUSTOM CURSOR
+   CURSOR
    ========================================================= */
 if (!isTouch) {
   const dot = document.querySelector('.cursor-dot');
   const ring = document.querySelector('.cursor-ring');
+  const label = document.querySelector('.cursor-label');
+
   const dotX = gsap.quickTo(dot, 'x', { duration: 0.08, ease: 'power3.out' });
   const dotY = gsap.quickTo(dot, 'y', { duration: 0.08, ease: 'power3.out' });
   const ringX = gsap.quickTo(ring, 'x', { duration: 0.5, ease: 'power3.out' });
@@ -940,65 +1063,71 @@ if (!isTouch) {
     ringX(e.clientX); ringY(e.clientY);
   });
 
-  document.querySelectorAll('a, button, .dish, .gallery-item, input, select, textarea').forEach(el => {
-    el.addEventListener('mouseenter', () => ring.classList.add('active'));
+  document.querySelectorAll('a, button, .dish-card, .gallery-item, input, select, textarea').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      ring.classList.add('active');
+      label.textContent = el.classList.contains('dish-card') ? 'Taste' : 'View';
+    });
     el.addEventListener('mouseleave', () => ring.classList.remove('active'));
   });
 }
 
-/* =========================================================
-   MAGNETIC BUTTONS
-   ========================================================= */
+/* MAGNETIC */
 if (!isTouch && !prefersReducedMotion) {
   document.querySelectorAll('.magnetic').forEach(el => {
     el.addEventListener('mousemove', (e) => {
       const r = el.getBoundingClientRect();
       const x = e.clientX - r.left - r.width / 2;
       const y = e.clientY - r.top - r.height / 2;
-      gsap.to(el, { x: x * 0.35, y: y * 0.35, duration: 0.6, ease: 'power3.out' });
+      gsap.to(el, { x: x * 0.3, y: y * 0.3, duration: 0.6, ease: 'power3.out' });
     });
     el.addEventListener('mouseleave', () => {
-      gsap.to(el, { x: 0, y: 0, duration: 0.9, ease: 'elastic.out(1, 0.32)' });
+      gsap.to(el, { x: 0, y: 0, duration: 0.9, ease: 'elastic.out(1, 0.3)' });
     });
   });
 }
 
 /* =========================================================
-   PRELOADER → ENTRANCE SEQUENCE
+   SPLIT HERO TITLE INTO CHARACTERS
+   ========================================================= */
+document.querySelectorAll('.hero-title .char').forEach((char, i) => {
+  // already spans, nothing to do
+});
+
+/* =========================================================
+   PRELOADER → ENTRANCE
    ========================================================= */
 const nav = document.querySelector('.nav');
 
 function enterSite() {
   lenis.start();
 
-  const tl = gsap.timeline();
+  const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
-  // Nav entrance
   tl.from('.nav-logo, .nav-links a, .nav-cta', {
-    y: -24, opacity: 0, stagger: 0.06, duration: 0.9, ease: 'power3.out'
+    y: -24, opacity: 0, stagger: 0.06, duration: 0.9
   }, 0);
 
-  // Hero image scale-up
-  tl.to('.hero-bg', { scale: 1, duration: 2.6, ease: 'power3.out' }, 0);
+  tl.from('.hero-eyebrow span', {
+    yPercent: 100, duration: 0.9, stagger: 0.08
+  }, 0.1);
+  tl.from('.hero-eyebrow i', {
+    scaleX: 0, duration: 0.8
+  }, 0.15);
 
-  // Eyebrow
-  tl.from('.hero-eyebrow', { y: 20, opacity: 0, duration: 1, ease: 'power3.out' }, 0.25);
+  tl.from('.hero-title .char', {
+    yPercent: 120, rotate: 8, opacity: 0,
+    duration: 1.1, stagger: 0.05
+  }, 0.3);
 
-  // Title words reveal (masked)
-  tl.from('.hero-title .word', {
-    yPercent: 120, opacity: 0, duration: 1.4, stagger: 0.08, ease: 'power4.out'
-  }, 0.35);
+  tl.from('.hero-title .amharic', {
+    y: 30, opacity: 0, duration: 1, ease: 'power3.out'
+  }, 0.9);
 
-  // Sub
-  tl.from('.hero-sub', { y: 24, opacity: 0, duration: 1.1, ease: 'power3.out' }, 1.0);
+  tl.from('.hero-sub', { y: 24, opacity: 0, duration: 1 }, 1.0);
+  tl.from('.hero-cta', { y: 24, opacity: 0, duration: 1 }, 1.15);
+  tl.from('.hero-side', { opacity: 0, duration: 1 }, 1.25);
 
-  // CTA
-  tl.from('.hero-cta', { y: 24, opacity: 0, duration: 1.1, ease: 'power3.out' }, 1.15);
-
-  // Scroll indicator
-  tl.from('.hero-scroll', { opacity: 0, duration: 1.0 }, 1.3);
-
-  // Refresh scroll triggers after entrance
   tl.add(() => ScrollTrigger.refresh());
 }
 
@@ -1007,32 +1136,37 @@ if (prefersReducedMotion) {
   enterSite();
 } else {
   const preTl = gsap.timeline({ onComplete: enterSite });
+
   preTl
-    .from('.preloader-logo', { y: 24, opacity: 0, duration: 0.9, ease: 'power3.out' })
-    .fromTo('.preloader-line', { scaleX: 0 }, { scaleX: 1, duration: 1.1, ease: 'power2.inOut' }, '-=0.5')
-    .from('.preloader-tag', { opacity: 0, duration: 0.8 }, '-=0.6')
-    .to('.preloader', { yPercent: -100, duration: 1.2, ease: 'power4.inOut' }, '+=0.35');
+    .from('.preloader-word span', {
+      yPercent: 100, opacity: 0,
+      duration: 0.7, stagger: 0.06, ease: 'power4.out'
+    })
+    .from('.preloader-sub span', {
+      yPercent: 100, duration: 0.6, ease: 'power3.out'
+    }, '-=0.3')
+    .to('.preloader-bar i', {
+      width: '100%', duration: 1.2, ease: 'power2.inOut'
+    }, '-=0.4')
+    .to('.preloader', {
+      yPercent: -100, duration: 1.1, ease: 'power4.inOut'
+    }, '+=0.15');
 }
 
 /* =========================================================
-   NAV SCROLL STATE
+   NAV SCROLL
    ========================================================= */
-let lastScroll = 0;
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
-  lastScroll = window.scrollY;
 });
 
-/* =========================================================
-   MOBILE MENU
-   ========================================================= */
+/* MOBILE MENU */
 const navToggle = document.querySelector('.nav-toggle');
 const mobileMenu = document.getElementById('mobileMenu');
 
 navToggle.addEventListener('click', () => {
   const open = mobileMenu.classList.toggle('open');
   navToggle.classList.toggle('open', open);
-  navToggle.setAttribute('aria-expanded', open);
   lenis[open ? 'stop' : 'start']();
 });
 
@@ -1042,214 +1176,476 @@ mobileMenu.querySelectorAll('a').forEach(a => {
     const id = a.getAttribute('href');
     mobileMenu.classList.remove('open');
     navToggle.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
     lenis.start();
-    setTimeout(() => {
-      lenis.scrollTo(id, { duration: 1.6 });
-    }, 350);
+    setTimeout(() => lenis.scrollTo(id, { duration: 1.4 }), 350);
   });
 });
 
-/* =========================================================
-   NAV LINK SMOOTH SCROLL
-   ========================================================= */
-document.querySelectorAll('.nav-links a, .hero-cta a, .story-link').forEach(a => {
+/* SMOOTH NAV */
+document.querySelectorAll('.nav-links a, .nav-cta, .btn-ghost, .hero-cta a').forEach(a => {
   a.addEventListener('click', (e) => {
     const href = a.getAttribute('href');
     if (href && href.startsWith('#')) {
       e.preventDefault();
-      lenis.scrollTo(href, { duration: 1.6 });
+      lenis.scrollTo(href, { duration: 1.4 });
     }
   });
 });
 
 /* =========================================================
-   HERO PARALLAX ON SCROLL
+   HERO 3D SCENE — JEBENA + FLOATING SPICES
    ========================================================= */
-gsap.to('.hero-bg', {
-  yPercent: 18,
-  ease: 'none',
-  scrollTrigger: {
-    trigger: '.hero',
-    start: 'top top',
-    end: 'bottom top',
-    scrub: 0.6
-  }
+const heroCanvas = document.getElementById('hero-3d');
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x0A0705, 0.09);
+
+const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 200);
+camera.position.set(0, 1.5, 6.5);
+camera.lookAt(0, 0.8, 0);
+
+const renderer = new THREE.WebGLRenderer({
+  canvas: heroCanvas,
+  alpha: true,
+  antialias: true
+});
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.3;
+
+/* Lights */
+scene.add(new THREE.AmbientLight(0xffffff, 0.3));
+
+const keyLight = new THREE.DirectionalLight(0xFFC44D, 3);
+keyLight.position.set(4, 6, 5);
+scene.add(keyLight);
+
+const fillLight = new THREE.DirectionalLight(0x8B2E1F, 1.8);
+fillLight.position.set(-5, 2, 3);
+scene.add(fillLight);
+
+const rimLight = new THREE.PointLight(0xFF6A00, 8, 15, 2);
+rimLight.position.set(0, 1.4, -3.5);
+scene.add(rimLight);
+
+const underLight = new THREE.PointLight(0xFF3D00, 4, 8, 2);
+underLight.position.set(0, -1.1, 1.2);
+scene.add(underLight);
+
+/* Soft glow texture */
+function makeGlowTexture(inner, outer) {
+  const size = 128;
+  const c = document.createElement('canvas');
+  c.width = c.height = size;
+  const ctx = c.getContext('2d');
+  const g = ctx.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
+  g.addColorStop(0, inner);
+  g.addColorStop(0.35, outer);
+  g.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, size, size);
+  return new THREE.CanvasTexture(c);
+}
+const softGlow = makeGlowTexture('rgba(255,255,255,1)', 'rgba(255,180,80,0.55)');
+
+/* Jebena (coffee pot) */
+const jebena = new THREE.Group();
+jebena.position.y = -0.4;
+
+const clayMat = new THREE.MeshStandardMaterial({
+  color: 0x7A3C14, roughness: 0.42, metalness: 0.12
 });
 
-gsap.to('.hero-content', {
-  yPercent: -18,
-  opacity: 0.2,
-  ease: 'none',
-  scrollTrigger: {
-    trigger: '.hero',
-    start: 'top top',
-    end: 'bottom top',
-    scrub: 0.6
-  }
+const profile = [
+  new THREE.Vector2(0.001, 0.00),
+  new THREE.Vector2(0.38, 0.00),
+  new THREE.Vector2(0.58, 0.10),
+  new THREE.Vector2(0.70, 0.38),
+  new THREE.Vector2(0.72, 0.66),
+  new THREE.Vector2(0.62, 0.94),
+  new THREE.Vector2(0.44, 1.16),
+  new THREE.Vector2(0.30, 1.36),
+  new THREE.Vector2(0.24, 1.58),
+  new THREE.Vector2(0.235, 1.78),
+  new THREE.Vector2(0.30, 1.92),
+  new THREE.Vector2(0.33, 1.96)
+];
+
+const body = new THREE.Mesh(new THREE.LatheGeometry(profile, 72), clayMat);
+jebena.add(body);
+
+const spout = new THREE.Mesh(
+  new THREE.CylinderGeometry(0.075, 0.135, 0.78, 20, 1, true),
+  clayMat
+);
+spout.position.set(0.44, 1.12, 0);
+spout.rotation.z = -0.62;
+jebena.add(spout);
+
+const handle = new THREE.Mesh(
+  new THREE.TorusGeometry(0.36, 0.055, 14, 48, Math.PI * 1.35),
+  clayMat
+);
+handle.position.set(-0.55, 1.02, 0);
+handle.rotation.z = -0.55;
+jebena.add(handle);
+
+const goldMat = new THREE.MeshStandardMaterial({
+  color: 0xFFC44D, roughness: 0.16, metalness: 0.95,
+  emissive: 0x412000, emissiveIntensity: 0.6
 });
+const lid = new THREE.Mesh(new THREE.SphereGeometry(0.135, 24, 20), goldMat);
+lid.position.y = 1.98;
+jebena.add(lid);
+
+const coffeeSurface = new THREE.Mesh(
+  new THREE.CircleGeometry(0.28, 40),
+  new THREE.MeshStandardMaterial({
+    color: 0x2A0E02, roughness: 0.15, metalness: 0.6,
+    emissive: 0xE8A33D, emissiveIntensity: 0.35
+  })
+);
+coffeeSurface.rotation.x = -Math.PI / 2;
+coffeeSurface.position.y = 1.80;
+jebena.add(coffeeSurface);
+
+scene.add(jebena);
+
+/* Ground glow */
+const groundGlow = new THREE.Mesh(
+  new THREE.PlaneGeometry(9, 9),
+  new THREE.MeshBasicMaterial({
+    map: softGlow, transparent: true, opacity: 0.28,
+    blending: THREE.AdditiveBlending, depthWrite: false, color: 0xE8A33D
+  })
+);
+groundGlow.rotation.x = -Math.PI / 2;
+groundGlow.position.y = -1.1;
+scene.add(groundGlow);
+
+/* Steam particles */
+const STEAM_COUNT = 80;
+const steamGeo = new THREE.BufferGeometry();
+const steamPos = new Float32Array(STEAM_COUNT * 3);
+const steamData = [];
+
+for (let i = 0; i < STEAM_COUNT; i++) {
+  const a = Math.random() * Math.PI * 2;
+  const r = Math.random() * 0.16;
+  steamPos[i*3] = Math.cos(a) * r;
+  steamPos[i*3+1] = 1.9 + Math.random() * 3.2;
+  steamPos[i*3+2] = Math.sin(a) * r;
+  steamData.push({
+    a, r,
+    y: steamPos[i*3+1],
+    speed: 0.0035 + Math.random() * 0.008,
+    wobble: Math.random() * Math.PI * 2,
+    wobbleSpeed: 0.4 + Math.random() * 0.9
+  });
+}
+steamGeo.setAttribute('position', new THREE.BufferAttribute(steamPos, 3));
+
+const steamMat = new THREE.PointsMaterial({
+  map: softGlow, color: 0xFFC874, size: 0.42, transparent: true,
+  opacity: 0.28, blending: THREE.AdditiveBlending,
+  depthWrite: false, sizeAttenuation: true
+});
+const steam = new THREE.Points(steamGeo, steamMat);
+steam.position.y = -0.4;
+scene.add(steam);
+
+/* Floating spices / coffee beans */
+const SPICE_COUNT = 60;
+const spiceGeo = new THREE.BufferGeometry();
+const spicePos = new Float32Array(SPICE_COUNT * 3);
+const spiceData = [];
+
+for (let i = 0; i < SPICE_COUNT; i++) {
+  const a = Math.random() * Math.PI * 2;
+  const r = 1.5 + Math.random() * 2.5;
+  const y = -1 + Math.random() * 4;
+  spicePos[i*3] = Math.cos(a) * r;
+  spicePos[i*3+1] = y;
+  spicePos[i*3+2] = Math.sin(a) * r;
+  spiceData.push({
+    a, r, y,
+    speed: 0.001 + Math.random() * 0.003,
+    phase: Math.random() * Math.PI * 2,
+    size: 0.05 + Math.random() * 0.12
+  });
+}
+spiceGeo.setAttribute('position', new THREE.BufferAttribute(spicePos, 3));
+
+const spiceMat = new THREE.PointsMaterial({
+  map: softGlow, color: 0xFF6A00, size: 0.14, transparent: true,
+  opacity: 0.7, blending: THREE.AdditiveBlending, depthWrite: false
+});
+const spices = new THREE.Points(spiceGeo, spiceMat);
+scene.add(spices);
+
+/* Pointer */
+const pointer = { x: 0, y: 0 };
+const target = { x: 0, y: 0 };
+
+window.addEventListener('mousemove', (e) => {
+  pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+  pointer.y = (e.clientY / window.innerHeight) * 2 - 1;
+});
+
+/* Scroll */
+let scrollProgress = 0;
+ScrollTrigger.create({
+  trigger: '.hero',
+  start: 'top top',
+  end: 'bottom top',
+  scrub: 1,
+  onUpdate: (self) => { scrollProgress = self.progress; }
+});
+
+/* Animation loop */
+const clock = new THREE.Clock();
+
+function animateHero() {
+  requestAnimationFrame(animateHero);
+  const t = clock.getElapsedTime();
+
+  target.x += (pointer.x * 0.9 - target.x) * 0.045;
+  target.y += (-pointer.y * 0.5 - target.y) * 0.045;
+
+  camera.position.x = target.x;
+  camera.position.y = 1.5 + target.y + scrollProgress * 0.9;
+  camera.position.z = 6.5 + scrollProgress * 1.8;
+  camera.lookAt(0, 0.8 + scrollProgress * 0.3, 0);
+
+  if (!prefersReducedMotion) {
+    jebena.position.y = -0.4 + Math.sin(t * 0.7) * 0.055;
+    jebena.rotation.y = Math.sin(t * 0.22) * 0.28;
+    jebena.rotation.z = Math.sin(t * 0.45) * 0.02;
+
+    coffeeSurface.material.emissiveIntensity = 0.28 + Math.sin(t * 1.6) * 0.14;
+
+    /* Steam */
+    const sp = steamGeo.attributes.position.array;
+    for (let i = 0; i < STEAM_COUNT; i++) {
+      const d = steamData[i];
+      d.y += d.speed;
+      if (d.y > 5.2) d.y = 1.85;
+      const wob = Math.sin(t * d.wobbleSpeed + d.wobble) * 0.22;
+      const spread = 0.16 + (d.y - 1.85) * 0.16;
+      sp[i*3] = Math.cos(d.a + t * 0.18) * (d.r + spread) + wob;
+      sp[i*3+1] = d.y;
+      sp[i*3+2] = Math.sin(d.a + t * 0.18) * (d.r + spread) + wob;
+    }
+    steamGeo.attributes.position.needsUpdate = true;
+    steamMat.opacity = 0.20 + Math.sin(t * 0.9) * 0.06;
+
+    /* Spices */
+    const spc = spiceGeo.attributes.position.array;
+    for (let i = 0; i < SPICE_COUNT; i++) {
+      const d = spiceData[i];
+      d.y += d.speed;
+      if (d.y > 4.5) d.y = -1;
+      spc[i*3] = Math.cos(d.a + t * 0.35) * d.r;
+      spc[i*3+1] = d.y + Math.sin(t * 0.8 + d.phase) * 0.18;
+      spc[i*3+2] = Math.sin(d.a + t * 0.35) * d.r;
+    }
+    spiceGeo.attributes.position.needsUpdate = true;
+
+    underLight.intensity = 4.2 + Math.sin(t * 3.1) * 0.9 + Math.sin(t * 7.7) * 0.4;
+    rimLight.intensity = 8.4 + Math.cos(t * 2.3) * 1.1;
+  }
+
+  renderer.render(scene, camera);
+}
+animateHero();
 
 /* =========================================================
-   REVEAL ANIMATIONS
+   SCROLL ANIMATIONS
    ========================================================= */
 
-// Section labels
-gsap.utils.toArray('.section-label').forEach(label => {
-  gsap.from(label.children, {
-    opacity: 0,
-    y: 20,
-    duration: 0.9,
-    stagger: 0.1,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: label,
-      start: 'top 85%'
-    }
-  });
-});
-
-// Section headings
-gsap.utils.toArray('.section-heading').forEach(h => {
-  gsap.from(h, {
-    yPercent: 20,
-    opacity: 0,
-    duration: 1.2,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: h,
-      start: 'top 85%'
-    }
-  });
-});
-
-// Story — image clip reveals + text stagger
-const storyImages = document.querySelectorAll('.story-img-main, .story-img-accent');
-storyImages.forEach((img, i) => {
-  gsap.fromTo(img,
-    { clipPath: 'inset(100% 0 0 0)' },
-    {
-      clipPath: 'inset(0% 0 0 0)',
-      duration: 1.4,
-      ease: 'power4.out',
-      delay: i * 0.15,
-      scrollTrigger: { trigger: img, start: 'top 85%' }
-    }
-  );
-});
-
-gsap.from('.story-copy .lead', {
-  y: 40, opacity: 0, duration: 1, ease: 'power3.out',
-  scrollTrigger: { trigger: '.story-copy', start: 'top 80%' }
-});
-
-gsap.from('.story-copy > p:not(.lead)', {
-  y: 30, opacity: 0, duration: 1, stagger: 0.15, ease: 'power3.out',
-  scrollTrigger: { trigger: '.story-copy', start: 'top 78%' }
-});
-
-gsap.from('.story-link', {
-  y: 20, opacity: 0, duration: 1, ease: 'power3.out',
-  scrollTrigger: { trigger: '.story-copy', start: 'top 70%' }
-});
-
-// Story image parallax
-gsap.to('.story-img-main img', {
+/* About */
+gsap.fromTo('.about-visual img',
+  { scale: 1.15 },
+  { scale: 1, duration: 1.6, ease: 'power3.out',
+    scrollTrigger: { trigger: '.about-visual', start: 'top 82%' } }
+);
+gsap.fromTo('.about-visual',
+  { clipPath: 'inset(100% 0 0 0)' },
+  { clipPath: 'inset(0% 0 0 0)', duration: 1.3, ease: 'power4.out',
+    scrollTrigger: { trigger: '.about-visual', start: 'top 82%' } }
+);
+gsap.to('.about-visual img', {
   yPercent: -8, ease: 'none',
-  scrollTrigger: { trigger: '.story', start: 'top bottom', end: 'bottom top', scrub: 0.8 }
+  scrollTrigger: { trigger: '.about', start: 'top bottom', end: 'bottom top', scrub: 0.8 }
 });
-gsap.to('.story-img-accent img', {
-  yPercent: -14, ease: 'none',
-  scrollTrigger: { trigger: '.story', start: 'top bottom', end: 'bottom top', scrub: 0.8 }
+gsap.from('.about-copy .section-heading', {
+  y: 40, opacity: 0, duration: 1.2, ease: 'power3.out',
+  scrollTrigger: { trigger: '.about-copy', start: 'top 82%' }
 });
-
-// Menu intro + cards
-gsap.from('.menu-intro', {
+gsap.from('.about-copy .lead', {
   y: 30, opacity: 0, duration: 1, ease: 'power3.out',
-  scrollTrigger: { trigger: '.menu-header', start: 'top 82%' }
+  scrollTrigger: { trigger: '.about-copy', start: 'top 78%' }
+});
+gsap.from('.about-copy > p:not(.lead)', {
+  y: 24, opacity: 0, duration: 1, stagger: 0.12, ease: 'power3.out',
+  scrollTrigger: { trigger: '.about-copy', start: 'top 74%' }
+});
+gsap.from('.about-stat', {
+  y: 24, opacity: 0, duration: 0.9, stagger: 0.1, ease: 'power3.out',
+  scrollTrigger: { trigger: '.about-stats', start: 'top 88%' }
 });
 
-gsap.utils.toArray('.dish').forEach((dish, i) => {
-  gsap.from(dish, {
-    y: 60, opacity: 0, duration: 1.1, ease: 'power3.out',
-    delay: (i % 3) * 0.08,
-    scrollTrigger: { trigger: dish, start: 'top 88%' }
+/* Menu */
+gsap.from('.menu .section-heading', {
+  y: 40, opacity: 0, duration: 1.2, ease: 'power3.out',
+  scrollTrigger: { trigger: '.menu', start: 'top 78%' }
+});
+gsap.from('.menu .section-sub', {
+  y: 24, opacity: 0, duration: 1, ease: 'power3.out',
+  scrollTrigger: { trigger: '.menu', start: 'top 74%' }
+});
+gsap.utils.toArray('.dish-card').forEach((card, i) => {
+  gsap.fromTo(card,
+    { clipPath: 'inset(100% 0 0 0)', y: 40 },
+    { clipPath: 'inset(0% 0 0 0)', y: 0, duration: 1.2, ease: 'power4.out',
+      delay: i * 0.1,
+      scrollTrigger: { trigger: card, start: 'top 88%' } }
+  );
+  gsap.from(card.querySelector('.dish-info'), {
+    y: 24, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.4 + i * 0.1,
+    scrollTrigger: { trigger: card, start: 'top 78%' }
   });
 });
 
-// Gallery clip reveals
+/* Dish card 3D tilt */
+if (!isTouch && !prefersReducedMotion) {
+  document.querySelectorAll('[data-tilt]').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
+      const rx = ((y - r.height / 2) / r.height) * -10;
+      const ry = ((x - r.width / 2) / r.width) * 10;
+      gsap.to(card, {
+        rotationX: rx, rotationY: ry,
+        transformPerspective: 900,
+        duration: 0.5, ease: 'power2.out'
+      });
+    });
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, { rotationX: 0, rotationY: 0, duration: 0.7, ease: 'power3.out' });
+    });
+  });
+}
+
+/* Catering */
+gsap.from('.catering-content .eyebrow', {
+  opacity: 0, y: 20, duration: 0.9, ease: 'power3.out',
+  scrollTrigger: { trigger: '.catering', start: 'top 78%' }
+});
+gsap.from('.catering-content h2', {
+  y: 40, opacity: 0, duration: 1.2, ease: 'power3.out',
+  scrollTrigger: { trigger: '.catering', start: 'top 75%' }
+});
+gsap.from('.catering-content p', {
+  y: 24, opacity: 0, duration: 1, ease: 'power3.out',
+  scrollTrigger: { trigger: '.catering', start: 'top 72%' }
+});
+gsap.from('.catering-content .btn-primary', {
+  y: 24, opacity: 0, duration: 1, ease: 'power3.out',
+  scrollTrigger: { trigger: '.catering', start: 'top 70%' }
+});
+
+/* Gallery — horizontal scroll */
+const galleryTrack = document.querySelector('.gallery-track');
+const galleryScrollAmount = () => galleryTrack.scrollWidth - window.innerWidth + 120;
+
+ScrollTrigger.matchMedia({
+  '(min-width: 901px)': function() {
+    gsap.to(galleryTrack, {
+      x: () => -galleryScrollAmount(),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.gallery',
+        start: 'top top',
+        end: () => `+=${galleryScrollAmount()}`,
+        pin: true,
+        scrub: 1,
+        invalidateOnRefresh: true
+      }
+    });
+  }
+});
+
+gsap.from('.gallery .section-heading', {
+  y: 40, opacity: 0, duration: 1.2, ease: 'power3.out',
+  scrollTrigger: { trigger: '.gallery', start: 'top 78%' }
+});
 gsap.utils.toArray('.gallery-item').forEach((item, i) => {
   gsap.fromTo(item,
-    { clipPath: 'inset(20% 20% 20% 20%)', opacity: 0 },
-    {
-      clipPath: 'inset(0% 0% 0% 0%)',
-      opacity: 1,
-      duration: 1.3,
-      ease: 'power4.out',
-      delay: (i % 3) * 0.1,
-      scrollTrigger: { trigger: item, start: 'top 88%' }
-    }
+    { clipPath: 'inset(100% 0 0 0)' },
+    { clipPath: 'inset(0% 0 0 0)', duration: 1.1, ease: 'power4.out',
+      delay: i * 0.08,
+      scrollTrigger: { trigger: '.gallery', start: 'top 82%' } }
   );
 });
 
-// Reservation
-gsap.from('.res-img', {
-  xPercent: -10, opacity: 0, duration: 1.4, ease: 'power3.out',
-  scrollTrigger: { trigger: '.res-grid', start: 'top 78%' }
+/* Contact */
+gsap.from('.contact-info h2', {
+  y: 40, opacity: 0, duration: 1.2, ease: 'power3.out',
+  scrollTrigger: { trigger: '.contact', start: 'top 78%' }
 });
-gsap.from('.res-form > *', {
-  y: 40, opacity: 0, duration: 1, stagger: 0.08, ease: 'power3.out',
-  scrollTrigger: { trigger: '.res-form', start: 'top 78%' }
+gsap.from('.contact-block', {
+  y: 24, opacity: 0, duration: 0.9, stagger: 0.1, ease: 'power3.out',
+  scrollTrigger: { trigger: '.contact-info', start: 'top 75%' }
+});
+gsap.from('.contact-form', {
+  y: 50, opacity: 0, duration: 1.2, ease: 'power3.out',
+  scrollTrigger: { trigger: '.contact-form', start: 'top 82%' }
 });
 
-// Footer
+/* Footer */
 gsap.from('.footer-inner > *', {
-  y: 30, opacity: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out',
-  scrollTrigger: { trigger: '.footer', start: 'top 85%' }
-});
-gsap.from('.footer-watermark', {
-  yPercent: 30, opacity: 0, duration: 1.6, ease: 'power3.out',
-  scrollTrigger: { trigger: '.footer', start: 'top 85%' }
+  y: 30, opacity: 0, duration: 0.9, stagger: 0.1, ease: 'power3.out',
+  scrollTrigger: { trigger: '.footer', start: 'top 88%' }
 });
 
 /* =========================================================
-   RESERVATION FORM (DEMO)
+   CONTACT FORM
    ========================================================= */
-const form = document.getElementById('reservationForm');
-const reserveBtn = document.getElementById('reserveBtn');
+const form = document.getElementById('contactForm');
+const submitBtn = document.getElementById('submitBtn');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  // Simple validation
-  const name = form.querySelector('#name').value.trim();
-  const email = form.querySelector('#email').value.trim();
-  const date = form.querySelector('#date').value;
-  const guests = form.querySelector('#guests').value;
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const guests = document.getElementById('guests').value;
 
-  if (!name || !email || !date || !guests) {
-    const btnSpan = reserveBtn.querySelector('span');
-    const original = btnSpan.textContent;
-    btnSpan.textContent = 'Please complete fields';
-    gsap.fromTo(reserveBtn, { x: -4 }, { x: 0, duration: 0.4, ease: 'elastic.out(1, 0.3)' });
-    setTimeout(() => { btnSpan.textContent = original; }, 2200);
+  if (!name || !phone || !guests) {
+    const original = submitBtn.textContent;
+    submitBtn.textContent = 'Please complete all fields';
+    gsap.fromTo(submitBtn, { x: -4 }, { x: 0, duration: 0.4, ease: 'elastic.out(1, 0.3)' });
+    setTimeout(() => { submitBtn.textContent = original; }, 2200);
     return;
   }
 
-  const btnSpan = reserveBtn.querySelector('span');
-  btnSpan.textContent = 'Sending request…';
-  reserveBtn.disabled = true;
+  const original = submitBtn.textContent;
+  submitBtn.textContent = 'Sending…';
+  submitBtn.disabled = true;
 
   setTimeout(() => {
-    btnSpan.textContent = '✓ Request received';
-    reserveBtn.style.background = 'var(--gold)';
-    gsap.fromTo(reserveBtn, { scale: 1.05 }, { scale: 1, duration: 0.5, ease: 'elastic.out(1, 0.4)' });
-
+    submitBtn.textContent = '✓ Request received';
+    submitBtn.style.background = '#2D4A32';
+    gsap.fromTo(submitBtn, { scale: 1.04 }, { scale: 1, duration: 0.5, ease: 'elastic.out(1, 0.4)' });
     form.reset();
 
     setTimeout(() => {
-      btnSpan.textContent = 'Request Reservation';
-      reserveBtn.disabled = false;
-    }, 3200);
+      submitBtn.textContent = original;
+      submitBtn.disabled = false;
+      submitBtn.style.background = '';
+    }, 3000);
   }, 1400);
 });
 
@@ -1258,13 +1654,15 @@ form.addEventListener('submit', (e) => {
    ========================================================= */
 let resizeTimer;
 window.addEventListener('resize', () => {
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(() => ScrollTrigger.refresh(), 250);
 });
 
-window.addEventListener('load', () => {
-  setTimeout(() => ScrollTrigger.refresh(), 400);
-});
+window.addEventListener('load', () => setTimeout(() => ScrollTrigger.refresh(), 400));
 </script>
 </body>
 </html>
